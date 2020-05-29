@@ -1,0 +1,60 @@
+
+Create new branch
+Switch to the new branch created
+Work on this branch
+Commit
+Push
+Create pull request to master branch
+
+
+
+How to push under another username:
+git config --local credential.helper ""
+git push origin master
+Enter username and password
+
+
+New repo and push
+https://help.github.com/en/articles/adding-an-existing-project-to-github-using-the-command-line
+
+
+https://stackoverflow.com/questions/39399804/updates-were-rejected-because-the-tip-of-your-current-branch-is-behind/39414252
+
+
+Revert all
+git reset --hard
+
+Retrieved modified, deleted files:
+Git checkout — [file or folder]
+
+Delete all DS_Store file local
+find . -name '.DS_Store' -type f -delete
+
+Delete a branch:
+Switch to master branch: git checkout meter
+git branch -D branch_name
+
+Restore uncommitted deleted file
+git checkout <branch_you_are_in> <directory_of_all_your_source_code>
+
+restore all uncommitted files 
+git reset HEAD .
+
+
+Clone from a branch
+git clone --single-branch --branch <branchname> <remote-repo>
+
+
+Git revert to a commit 
+
+Make sure you are on the branch where the commit is. I’m doing this on master.
+Then use git reset –hard <commit-hash> to set the current branch HEAD to the commit you want.
+
+(‘git log’ to get the commit) 
+git reset --hard cedc856
+git push --force origin master 
+When we push the change to origin when need to use force
+
+
+Reference
+https://www.christianengvall.se/git-reset-origin-master-to-commit/

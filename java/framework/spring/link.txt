@@ -1,0 +1,10 @@
+
+https://stackoverflow.com/questions/46429284/spring-prototype-bean-scope-vs-new-operator
+
+https://stackoverflow.com/questions/21969044/when-to-use-spring-prototype-scope
+
+
+https://stackoverflow.com/questions/5589319/understanding-spring-aop
+
+https://www.springboottutorial.com/spring-boot-and-aop-with-spring-boot-starter-aop
+

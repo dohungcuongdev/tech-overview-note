@@ -1,0 +1,4 @@
+
+https://medium.com/@RogelioOrts/layered-architecture-spring-boot-af7dc071d2b5
+
+https://medium.com/@gsigety/domain-driven-design-spring-boot-kata-1-8a85034babec

@@ -1,0 +1,13 @@
+React
+
+https://stackoverflow.com/questions/53062732/react-functional-components-with-hooks-vs-class-components
+
+https://github.com/facebook/create-react-app/issues/6880
+
+https://stackoverflow.com/questions/53277367/react-redux-mapstatetoprops-is-called-many-times
+
+https://stackoverflow.com/questions/50819162/why-is-my-function-being-called-twice-in-react
+
+https://dev.to/nburgess/creating-a-react-app-with-react-router-and-an-express-backend-33l3
+
+https://www.mindk.com/blog/product-roadmap/

@@ -1,0 +1,14 @@
+https://viblo.asia/p/su-dung-trigger-trong-sql-qua-vi-du-co-ban-aWj538APK6m
+
+https://dev.mysql.com/doc/refman/8.0/en/trigger-syntax.html
+
+https://www.codehub.vn/MySQL-Stored-Procedure-la-gi
+
+https://www.mysqltutorial.org/variables-in-stored-procedures.aspx/
+
+https://www.tutorialspoint.com/mysql/mysql-database-info.htm
+
+https://www.geeksforgeeks.org/having-vs-where-clause-in-sql/
+
+https://www.w3schools.com/sql/sql_groupby.asp
+

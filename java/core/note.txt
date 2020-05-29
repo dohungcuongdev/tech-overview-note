@@ -1,0 +1,65 @@
+Delegation vs Composition vs Aggregation
+
+1) Delegation: Man-driver-car example. A Man bought a car. But that man does not know to drive the car. So he will appoint a driver who knows driving a car. So the Man class wants to perform a transportation using car. But it does not have the interacting- functionality/compatibility with car. So he uses a class which has compatibility with car that is driver which is compatible with man class. Assuming that driver can understand what man says
+
+2) Composition: Car simulation is a routine example. To make a car move, wheel rotates. Car class using wheel class rotate functinality as part of its move function, where as wheel is part of car.
+
+3) Aggregation: Car and its colour. Car class object ferrari will have a colour class object red. But colour class object red can be there as individual class, when user search happens with a specification of red colour.
+
+Delegation
+public class A {
+  private B b = new B();
+
+  public void methodA() {
+    b.methodB();
+  }
+}
+When clients of A call methodA, class A delegates the call to B's methodB.
+Rationale. Class A exposes behaviours that belong elsewhere. This can happen in single-inheritance languages where class A inherits from one class, but its clients need behaviours that are implemented in a different class. Further study.
+Hybrid Delegation
+public class A {
+  private B b = new B();
+
+  public void methodA() {
+    b.methodB( this );
+  }
+}
+The difference between delegation that involves simple forwarding and delegation that acts as a substitute for inheritance is that the callee must accept a parameter of the caller, exemplified as:
+    b.methodB( this );
+Rationale. Allows class B instances to use functionality available from class A, just as class B would if it inherited from class A--but without inheritance. Further study.
+Composition
+public class A {
+  private B b = new B();
+
+  public A() {
+  }
+}
+Once no more references to a particular instance of class A exist, its instance of class B is destroyed.
+Rationale. Allows classes to define behaviours and attributes in a modular fashion. Further study.
+Aggregation
+public class A {
+  private B b;
+
+  public A( B b ) {
+    this.b = b;
+  }
+}
+
+public class C {
+  private B b = new B();
+
+  public C() {
+    A a = new A( this.b );
+  }
+}
+Once there are no more references to a particular instance of class A, its instance of class B will not be destroyed. In this example, both A and C must be garbage collected before B will be destroyed.
+Rationale. Allows instances to reuse objects. Further study.
+
+
+https://stackoverflow.com/questions/1384426/distinguishing-between-delegation-composition-and-aggregation-java-oo-design
+
+In summary:
+
+Delegation: Man & Car: Man use Car
+Composition: Car & Wheel: Wheel is a part of car
+Aggregation: Car & Colour

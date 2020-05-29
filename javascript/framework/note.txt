@@ -1,0 +1,39 @@
+Dom vs Virtual Dom
+
+Dom:
+Each time something in the DOM changes. Since DOM is represented as a tree structure, changes to the DOM is pretty quick but the changed element, and it’s children’s has to go through Reflow/Layout stage and then the changes has to be Re-painted which are slow. Therefore more the items to reflow/repaint, more slow your app becomes.
+
+Summary:
+Dom’s children node changed -> Reflow -> Re-painted -> Display
+
+Note:
+A reflow computes the layout of the page.  A reflow on an element recomputes the dimensions and position of the element, and it also triggers further reflows on that element’s children, ancestors and elements that appear after it in the DOM.  Then it calls a final repaint.  Reflowing is very expensive, but unfortunately it can be triggered easily.
+Reflow occurs when you:
+* 		insert, remove or update an element in the DOM
+* 		modify content on the page, e.g. the text in an input box
+* 		move a DOM element
+* 		animate a DOM element
+* 		take measurements of an element such as offsetHeight or getComputedStyle
+* 		change a CSS style
+* 		change the className of an element
+* 		add or remove a stylesheet
+* 		resize the window
+* 		scroll
+* 
+
+Virtual Dom:
+Component render -> Create new virtual DOM tree
+Any change -> compares new virtual DOM tree with the old virtual DOM -> apply transformations to DOM
+
+A virtual DOM(VDOM) is not a new concept: https://github.com/Matt-Esch/virtual-dom.
+VDOM is a strategically to update DOM without redrawing all the nodes in a single page application. Finding a node in tress structure is easy but DOM tree for an SPA app can be drastically huge. Finding and updating a node/nodes in case of an event is not time efficient.
+VDOM solve this problem by creating a high label abstraction of actual dom. The VDOM is a high level lightweight in-memory tree representation of actual DOM.
+For example, consider adding a node in DOM; react keep a copy of VDOM in memory
+1. Create a VDOM with a new state
+2. Compare it with older VDOM using diffing.
+3. Update only differ nodes in real DOM.
+4. Assign new VDOM as older VDOM.
+
+Let's take an example — though a very naive one: If you have something messed up in a room in your home and you need to clean it, what will be your first step? Will you be cleaning your room which is messed up or the whole house? The answer is definitely that you will be cleaning only the room which requires the cleaning. That's what the virtual DOM does.
+Ordinary JS traverses or renders the whole DOM instead of rendering only the part which requires changes.
+So whenever you have any changes, as in you want to add another <div> to your DOM then the virtual DOM will be created which actually does not do any changes in the actual DOM. Now with this virtual DOM, you will be checking the difference between this and your current DOM. And only the part which is different (in this case the new <div>) will be added instead of re-rendering the whole DOM.

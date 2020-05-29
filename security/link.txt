@@ -1,0 +1,6 @@
+
+https://stackoverflow.com/questions/39909419/what-are-the-main-differences-between-jwt-and-oauth-authentication
+
+https://stackoverflow.com/questions/27314076/difference-between-jwt-and-saml
+
+https://security.stackexchange.com/questions/82587/what-are-the-differences-between-json-web-tokens-saml-and-oauth-2
