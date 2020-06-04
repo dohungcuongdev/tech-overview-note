@@ -1,0 +1,7 @@
+https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples
+
+https://en.wikipedia.org/wiki/Initialization-on-demand_holder_idiom
+
+https://stackoverflow.com/questions/6109896/singleton-pattern-bill-pughs-solution
+
+https://stackoverflow.com/questions/52687983/is-java-eager-singleton-creation-thread-safe

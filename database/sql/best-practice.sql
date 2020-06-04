@@ -1,9 +1,9 @@
-
+DROP TABLE IF EXISTS employee;
 
 CREATE TABLE employee (
     id int NOT NULL AUTO_INCREMENT,
     name varchar(255) NOT NULL,
-    department_id varchar(255),
+    department_id int,
     salary int,
     PRIMARY KEY (id)
 );
@@ -36,3 +36,12 @@ SELECT AVG(salary) as avg_sal, department_id FROM employee GROUP BY department_i
 
 -- Find average salary in department 1
 SELECT AVG(salary) as avg_sal, department_id FROM employee GROUP BY department_id HAVING department_id = 1;
+
+-- Find average salary and all employee having salary > average salary
+SET @avr_sal = (SELECT AVG(salary) as avg_sal FROM employee);
+SELECT @avr_sal;
+SELECT * FROM employee WHERE salary > @avr_sal;
+
+-- insert if DUPLICATE key update
+insert into employee (id, name, department_id, salary) values (10, 'cuong do', 1, 2000)
+ON DUPLICATE KEY UPDATE name='cuong do', department_id=1, salary = 2000;

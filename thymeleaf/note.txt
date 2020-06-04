@@ -1,0 +1,17 @@
+
+Both of them are view layers of Spring MVC. Firstly, the very basic difference is the file extensions. (.jsp & .html)
+
+Branislav in the comments is right, JSP is not a template engine. It's compiled to the servlet and then the servlet is serving web content. On the other hand, Thymeleaf is a template engine which takes the HTML file, parses it and then produces web content which is being served.
+
+Thymeleaf is more like an HTML-ish view when you compare it with JSP views.
+
+We can use prototype code in thymeleaf : http://www.dineshonjava.com/2015/01/thymeleaf-vs-jsp-spring-mvc-view-layer.html#.WEkLzLKLTig
+
+Since it is more HTML-ish code, thymeleaf codes are more readable (of course you can disrupt it and create unreadable codes, but at the end, it will be more readable when you compare it with .jsp files)
+
+Standard Dialect (The expression language) is much more powerful than JSP Expression Language
+
+If we put all this to an edge, thymeleaf is the slow one here.
+
+
+=> Thymeleaf makes html easier to read but run slower than JSP

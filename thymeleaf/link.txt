@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/41019274/difference-between-spring-jsp-mvc-and-thymeleaf-mvc

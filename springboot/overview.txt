@@ -1,0 +1,72 @@
+Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run".
+
+We take an opinionated view of the Spring platform and third-party libraries so you can get started with minimum fuss. 
+Most Spring Boot applications need minimal Spring configuration.
+
+Features:
+- Create stand-alone Spring applications
+- Embed Tomcat, Jetty or Undertow directly (no need to deploy WAR files)
+- Provide opinionated 'starter' dependencies to simplify your build configuration
+- Automatically configure Spring and 3rd party libraries whenever possible
+- Provide production-ready features such as metrics, health checks, and externalized configuration
+- Absolutely no code generation and no requirement for XML configuration
+
+
+How Spring Boot Application works internally?
+Following is the high-level flow of how spring boot works.
+From the run method, the main application context is kicked off which in turn searches for the classes annotated with @Configuration, initializes all the declared beans in those configuration classes, and based upon the scope of those beans, stores those beans in JVM, specifically in a space inside JVM which is known as IOC container. After the creation of all the beans, automatically configures the dispatcher servlet and registers the default handler mappings, messageConverts, and all other basic things.
+Basically, spring boot supports three embedded servers:- Tomcat (default), Jetty and Undertow.
+
+Spring boot works with a lot of generic AutoConfiguration, example DataSourceAutoConfiguration for DataSource etc. So that you don't have to do much of the configurations and focus just on business logic. 
+
+https://www.tutorialspoint.com/spring_boot/
+Spring Boot - Home
+Spring Boot - Introduction
+Spring Boot - Quick Start
+Spring Boot - Bootstrapping
+Spring Boot - Tomcat Deployment
+Spring Boot - Build Systems
+Spring Boot - Code Structure
+Spring Beans & Dependency Injection
+Spring Boot - Runners
+Spring Boot - Application Properties
+Spring Boot - Logging
+Building RESTful Web Services - use @RestController
+Spring Boot - Exception Handling 	
+Spring Boot - Interceptor
+Spring Boot - Servlet Filter
+Spring Boot - Tomcat Port Number
+Spring Boot - Rest Template
+Spring Boot - File Handling
+Spring Boot - Service Components
+Spring Boot - Thymeleaf - aims to replace JSP
+Consuming RESTful Web Services
+Spring Boot - CORS Support
+Spring Boot - Internationalization
+Spring Boot - Scheduling - use @Scheduled
+Spring Boot - Enabling HTTPS
+Spring Boot - Eureka Server
+Service Registration with Eureka
+Zuul Proxy Server and Routing
+Spring Cloud Configuration Server
+Spring Cloud Configuration Client
+Spring Boot - Actuator - provides secured endpoints for monitoring and managing your Spring Boot application: /metrics, /env, /beans, /health, /info, /trace
+Spring Boot - Admin Server
+Spring Boot - Admin Client
+Spring Boot - Enabling Swagger2 - for API documentation
+Spring Boot - Creating Docker Image
+Tracing Micro Service Logs
+Spring Boot - Flyway Database - for database Migration
+Spring Boot - Sending Email
+Spring Boot - Hystrix
+Spring Boot - Web Socket - for real-time app
+Spring Boot - Batch Service
+Spring Boot - Apache Kafka
+Spring Boot - Twilio
+Spring Boot - Unit Test Cases
+Rest Controller Unit Test
+Spring Boot - Database Handling
+Securing Web Applications
+Spring Boot - OAuth2 with JWT
+Spring Boot - Google Cloud Platform
+Spring Boot - Google OAuth2 Sign-In

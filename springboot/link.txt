@@ -1,0 +1,3 @@
+https://stackoverflow.com/questions/44172261/how-spring-boot-application-works-internally
+
+https://www.tutorialspoint.com/spring_boot/

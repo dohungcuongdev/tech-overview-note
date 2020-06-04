@@ -1,0 +1,40 @@
+Cache
+
+1/
+Cache là bộ nhớ đệm, vùng lưu trữ tạm thời trong máy tính. Nó khác với cookie ở chỗ thông tin lưu trữ ở đây là các tài liệu web, các hình ảnh, các video, HTML, .... Một phát kiến khá sáng suốt của con người trong thời kỳ công nghệ thông tin này để giảm tải băng thông, tăng tốc độ load, truy cập web. Bộ nhớ cache bao gồm bản sao các bit của trang Web được lưu trữ trên ổ đĩa cứng. Trình duyệt tải các bit khi bạn truy cập một trang Web nào đó, tốc độ truy cập sẽ nhanh hơn và tiết kiệm được băng thông khi "download". Bộ nhớ cache sẽ được lưu trữ cho đến khi bạn tự tay xóa nó đi. Do đó đừng dại mà xóa cache khi không cần thiết nhé (mình gỡ bỏ CCleaner trên máy tính từ lâu rồi (yaoming) )
+
+Bộ nhớ cache chính là nơi trình duyệt của bạn lưu trữ những file coppy để bạn không phải tải lại lần nữa khi duyệt web. VD. Lần đầu khi bạn truy cập vào một trang web có rất nhiều hình ảnh, Bạn mất khoảng 1s để load xong trang (chắc do mạng cùi bắp), Nhưng nhờ có bộ nhớ cache, thời gian để bạn load trang có thể gần như là ngay lập tức luôn cũng được đó.
+
+
+
+
+
+2/
+A web page request gets to the web server, which passes the request on to the application server, which executes some code that renders the page, which needs to turn to the database to dynamically retrieve data.
+
+This model does not scale well, because as the number of requests for the page goes up, the server has to do the same thing over and over again, for every request.
+
+This becomes even more of an issue if web server, application server, and database are on different hardware and communicate over the network with each other.
+
+If you have a large number of users hitting this page, it makes sense to not go all the way through to the database for every request. Instead, you resort to caching at different levels.
+
+Resultset Cache
+
+Resultset caching is storing the results of a database query along with the query in the application. Every time a web page generates a query, the applications checks whether the results are already cached, and if they are, pulls them from an in-memory data set instead. The application still has to render the page.
+
+Component Cache
+
+A web page is comprised of different components - pagelets, or whatever you may want to call them. A component caching strategy must know what parameters were used to request the component. For instance, a little "Latest News" bar on the site uses the user's geographical location or preference to show local news. Consequently, if the news for a location is cached, the component does not need to be rendered and can be pulled from a cache.
+
+Page Cache
+
+One strategy for caching entire pages is to store the query string and/or header parameters along with the completely renderered HTML. The file system is fast enough for this - it is still way less expensive for a web server to read a file than to make a call to the application server to have the page rendered. In this case, every user who sends the same query string will get the same cached content.
+
+Combining these caching strategies intelligently is the only way to create really scalable web apps for large numbers of concurrent users. As you can easily see, the potential risk here is that if a piece of content in the cache cannot be uniquely identified by it's key, people will start to see the wrong content. This can get pretty complicated, particularly when users have sessions and there is security context.
+
+
+
+3/
+Caching is just the practice of storing data in and retrieving data from a high-performance store (usually memory) either explicitly or implicitly.
+
+Let me explain. Memory is faster to access than a file, a remote URL (usually), a database or any other external store of information you like. So if the act of using one of those external resources is significant then you may benefit from caching to increase performance.

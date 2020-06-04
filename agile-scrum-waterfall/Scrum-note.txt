@@ -1,0 +1,31 @@
+
+Scrum is just one of the many iterative and incremental agile software development methods
+=> So Scrum is in fact a type of Agile approach which is used widely in software developments.
+
+1/ 
+Role: 
+ - Product Owner: responsible for the success the projectt, manage product backlog
+ - The team: development team
+ - Scrum Master: s responsible for promoting and supporting Scrum, ensure that the team is using Scrum Framework correctly to work. 
+
+2/
+Events:
+ - Sprint Planning: the meeting to plan what should be done in each Sprint
+ - Daily Scrum: Daily meeting to report development progress
+ - Sprint Review: meeting at the end of each Sprint to inspect the Increment and adapt the Product Backlog if needed.
+ - Sprint Retrospective: is an opportunity for the Scrum Team to inspect itself and create a plan for improvements to be enacted during the next Sprint
+ 
+3/
+Tool:
+ - Product backlog: list of requirements
+ - Sprint backlog: the plan of the Sprint
+ - Burndown Chart: the chart to track the status, progress of the Sprint
+
+Product Owner create Product Backlog including requirements order by priority
+The team will pick up these requirements, seperate them into sprints (from 1-4 weeks) to work on
+the team and product owner should have a meeting for planning what we should do in each sprint. This meeting is called "Sprint Planning"
+During development, the team need to update the status in Sprint Backlog, attent "Daily Scrum" meeting to report status, discuss about the problem,...
+After each sprint, we will have sprint goal, that would be the completed peice of application which we can run and demo for customer. The meeting with customer at the end of each sprint would be called "Sprint Review"
+After Sprint Review, Scrum Master and the team may have a meeting to evaluate, to review what did good, what did bad to learn from mistake and grow up after each Sprint. this meeting is called "Sprint Retrospective"
+The Sprints may repeat after finished all the story in Product Backlog. At the end product owner may decide end project or continue depend on situation.
+

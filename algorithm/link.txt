@@ -22,6 +22,10 @@ https://stackoverflow.com/questions/6470651/creating-a-memory-leak-with-java
 
 https://stackify.com/memory-leaks-java/
 
+https://stackoverflow.com/questions/4943518/what-is-the-difference-between-an-outofmemoryerror-and-a-memory-leak
+
+https://www.geeksforgeeks.org/what-is-memory-leak-how-can-we-avoid/
+
 https://stackoverflow.com/questions/5757552/deleting-an-object-in-java
 
 https://softwareengineering.stackexchange.com/questions/370579/why-arent-java-objects-deleted-immediately-after-they-are-no-longer-referenced
@@ -29,3 +33,13 @@ https://softwareengineering.stackexchange.com/questions/370579/why-arent-java-ob
 https://stackoverflow.com/questions/2263523/does-java-have-automatic-garbage-collection
 
 https://stackoverflow.com/questions/17436530/when-to-use-queue-over-arraylist
+
+https://stackoverflow.com/questions/39665299/understanding-quicksort
+
+https://www.geeksforgeeks.org/quick-sort-vs-merge-sort/
+
+https://www.geeksforgeeks.org/comparison-among-bubble-sort-selection-sort-and-insertion-sort/
+
+https://www.toptal.com/developers/sorting-algorithms
+
+https://www.geeksforgeeks.org/quicksort-better-mergesort/

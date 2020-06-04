@@ -1,0 +1,5 @@
+Agile is a lot of things and practices, but I think the core of it is just iterative development.
+
+Iterative: Think a bunch of very small waterfalls. That is, the waterfall method (requirements->spec->code->test), but instead of doing it over the course of a year or so, you do it over the course of a few weeks for a manageable chunk of the overall project. At the end of 'iteration/sprint/increment', you have a small but complete and tested set of additional functionality.
+
+This allows you to rapidly change the course of the project if it turns out that what you're doing isn't what the customer wants, or the business needs change, or whatever. Hence the term "agile."

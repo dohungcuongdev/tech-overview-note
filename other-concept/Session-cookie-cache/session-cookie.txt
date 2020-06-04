@@ -1,0 +1,17 @@
+Cookie:
+An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to the user's web browser. The browser stores this information on a local machine for future use.
+When next time browser sends any request to web server then it sends those cookies information to the server and server uses that information to identify the user.
+Use case of Cookie: remember me feature, advertising, recomemdation, or any feature that need to store data on client side
+
+Session:
+A session creates a file in a temporary directory on the server where registered session variables and their values are stored. This data will be available to all pages on the site during that visit.
+A session ends when the user closes the browser or after leaving the site, the server will terminate the session after a predetermined period of time, commonly 30 minutes duration.
+When session is created, it will automatically generate the session cookie (stored on client side) with a SESSIONID correspondingly for server to identify which client is being working with
+Use case of Cookie: login feature, shopping card, or any feature that need to store data on server server
+
+=>
+Cookies are stored on the client-side machine
+sessions are stored on the server.
+Cookies timeout last longer than sessions
+if you use Cookies to store data, client can edit that data
+if you use sessions to store many thing, it may lead to out of memory 

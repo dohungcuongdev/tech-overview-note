@@ -12,3 +12,10 @@ https://www.geeksforgeeks.org/having-vs-where-clause-in-sql/
 
 https://www.w3schools.com/sql/sql_groupby.asp
 
+https://softwareengineering.stackexchange.com/questions/123074/sql-triggers-and-when-or-when-not-to-use-them
+
+https://stackoverflow.com/questions/45141673/what-exactly-is-database-schema
+
+https://dev.mysql.com/doc/refman/8.0/en/commit.html
+
+https://www.mysqltutorial.org/mysql-stored-procedure-tutorial.aspx/

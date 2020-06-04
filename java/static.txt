@@ -1,0 +1,40 @@
+1/ static variable:
+It is a variable which belongs to the class and not to object(instance)
+Static variables are initialized only once , at the start of the execution(when the Classloader load the class for the first time) .
+These variables will be initialized first, before the initialization of any instance variables
+A single copy to be shared by all instances of the class
+A static variable can be accessed directly by the class name and doesn’t need any object
+
+2/ static block:
+Static block is used for initializing the static variables.This block gets executed when the class is loaded in the memory. A class can have multiple Static blocks, which will execute in the same sequence in which they have been written into the program.
+static block and static variable get executed at the same level. it means which is written first will be executed first.
+Also we can have Multiple Static blocks. They execute in the given order which means the first static block executes before second static block
+
+
+3/ Static methods:
+Static methods are the methods in Java that can be called without creating an object of class. They are referenced by the class name itself or reference to the Object of that class.
+
+Define static methods in the following scenarios only:
+If you are writing utility classes and they are not supposed to be changed.
+If the method is not using any instance variable.
+If any operation is not dependent on instance creation.
+If there is some code that can easily be shared by all the instance methods, extract that code into a static method.
+If you are sure that the definition of the method will never be changed or overridden. As static methods can not be overridden.
+
+4/ Static Class:
+A class can be made static only if it is a nested class:
+ - Nested static class doesn’t need reference of Outer class
+ - A static class cannot access non-static members of the Outer class
+Use case of static nested class: LinkedList.Entry, Map.Entry, Bill Pugh Singleton Implementation
+
+link:
+
+https://stackoverflow.com/questions/8704423/when-are-static-variables-initialized
+
+https://stackoverflow.com/questions/53450353/eager-initialization-over-static-block
+
+https://www.geeksforgeeks.org/static-methods-vs-instance-methods-java/
+
+https://stackoverflow.com/questions/8387989/where-are-static-methods-and-static-variables-stored-in-java
+
+https://stackoverflow.com/questions/7486012/static-classes-in-java

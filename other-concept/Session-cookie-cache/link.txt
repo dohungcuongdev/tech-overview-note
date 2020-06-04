@@ -1,0 +1,9 @@
+https://stackoverflow.com/questions/3804209/what-are-sessions-how-do-they-work?fbclid=IwAR1Oq8_jBbCSmjjTuSS69SzLYJHODnTeARnfrZrb61vOp4dx8zABNeQfAnY
+
+https://viblo.asia/p/session-cookie-va-cache-ban-da-thuc-su-hieu-chung-3P0lPv3PKox
+
+https://www.tutorialspoint.com/What-is-the-difference-between-session-and-cookies
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+
+https://stackoverflow.com/questions/548301/what-is-caching

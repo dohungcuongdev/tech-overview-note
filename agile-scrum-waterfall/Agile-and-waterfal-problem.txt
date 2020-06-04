@@ -1,0 +1,6 @@
+
+Requirements changes are going to happen because we are forced to design software at the nadir of knowledge about what is needed (the start of the project) and requirements will only become clearer over the course of the project.
+
+Traditional (Waterfall) approaches try to mitigate this change by locking everyone into a contract at the start of the project by having them sign off on comprehensive specs. This may work as a CYA, but it doesn't make anyone happy to deliver something that doesn't meet the needs of the users especially if their objections are met with "Well you signed off on it!"
+
+Agile Methods are designed to embrace the inevitable changes instead of shielding the development team from them. It does this in a number of ways, chief among them are iterative development and continual involvement by stakeholders in the process. In my experience it leaves everyone involved happier in the end, although it can be more uncomfortable for some management types who are hardcore planners.
