@@ -1,0 +1,34 @@
+<div id="myDiv">
+    <h2>Click me</h2>
+    <p id="myP">Mouse move me</p>
+</div><br>
+
+<script>
+    // add event listener
+    document.getElementById("myP").addEventListener("click", myFunction, true);
+    document.getElementById("myDiv").addEventListener("click", myFunction, true);
+    document.getElementById("myP").addEventListener("mousemove", myFunction, true);
+    document.getElementById("myDiv").addEventListener("mousemove", myFunction);
+
+    // remove event listener
+    document.getElementById("myP").removeEventListener("click", myFunction);
+    document.getElementById("myDiv").removeEventListener("mousemove", myFunction);
+
+    /*
+    Note: The addEventListener() and removeEventListener() methods are not supported in IE 8 
+    and earlier versions. However, for these specific browser versions, 
+    you can use the attachEvent() method to attach an event handlers to the element, 
+    and the detachEvent() method to remove it:
+    */
+
+    var x = document.getElementById("myP");
+    if (x.addEventListener) {     // For all major browsers, except IE 8 and earlier
+        x.addEventListener("click", myFunction);
+    } else if (x.attachEvent) {   // For IE 8 and earlier versions
+        x.attachEvent("onclick", myFunction);
+    }
+
+    function myFunction() {
+        console.log("hello");
+    }
+</script>

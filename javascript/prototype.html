@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>JavaScript Objects</h2>
+
+    <p id="demo"></p>
+
+    <script>
+        //We also learned that you can not add a new property to an existing object constructor:
+        function Person(first, last, age, eye) {
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+            this.eyeColor = eye;
+        }
+        //To add a new property to a constructor, you must add it to the constructor function:
+        /*function Person(first, last, age, eye) {
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+            this.eyeColor = eye;
+            nationality = "English";
+            name = function () {
+                return this.firstName + " " + this.lastName
+            }
+        }*/
+
+        //The JavaScript prototype property allows you to add new properties to object constructors:
+        Person.prototype.nationality = "English";
+
+        //The JavaScript prototype property also allows you to add new methods to objects constructors:
+        Person.prototype.name = function () {
+            return this.firstName + " " + this.lastName
+        };
+
+        var myFather = new Person("John", "Doe", 50, "blue");
+        document.getElementById("demo").innerHTML =
+            "My father is " + myFather.name() + " speaking " + myFather.nationality;
+
+        // Note: Only modify your own prototypes. Never modify the prototypes of standard JavaScript objects. 
+
+
+        // Add method to string class
+        String.prototype.distance = function (char) {
+            var index = this.indexOf(char);
+
+            if (index === -1) {
+                console.log(char + " does not appear in " + this);
+            } else {
+                console.log(char + " is " + (this.length - index) + " characters from the end of the string!");
+            }
+        };
+
+        "Hello".distance("H");
+
+
+        // Add method to Array class
+        Array.prototype.addValues = function (...values) {
+            values.forEach(value => {
+                this.push(value);
+            })
+        };
+        
+        let arr = [1,2,3,4];
+        arr.addValues(5,6,7,8,9);
+        console.log(arr);
+        
+    </script>
+
+</body>
+
+</html>

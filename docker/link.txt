@@ -17,12 +17,3 @@ https://stackoverflow.com/questions/43981040/what-does-volume-command-do-in-dock
 https://stackoverflow.com/questions/21553353/what-is-the-difference-between-cmd-and-entrypoint-in-a-dockerfile
 
 https://www.tutorialspoint.com/docker/index.htm
-
-https://www.w3schools.com/sql/sql_union.asp
-
-https://www.w3schools.com/sql
-
-https://www.w3schools.com/sql/sql_create_index.asp
-
-https://stackoverflow.com/questions/5706437/whats-the-difference-between-inner-join-left-join-right-join-and-full-join/6188334
-

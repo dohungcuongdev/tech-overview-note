@@ -1,0 +1,130 @@
+<script>
+/*
+Method Reuse
+With the call() method, you can write a method that can be used on different objects.
+All Functions are Methods
+In JavaScript all functions are object methods.
+If a function is not a method of a JavaScript object, it is a function of the global object (see previous chapter).
+The example below creates an object with 3 properties, firstName, lastName, fullName.
+*/
+var person = {
+  firstName:"John",
+  lastName: "Doe",
+  fullName: function () {
+    return this.firstName + " " + this.lastName;
+  }
+}
+person.fullName();   // Will return "John Doe"
+
+/*
+The this Keyword
+In a function definition, this refers to the "owner" of the function.
+In the example above, this is the person object that "owns" the fullName function.
+In other words, this.firstName means the firstName property of this object.
+*/
+
+
+/*
+The JavaScript call() Method
+The call() method is a predefined JavaScript method.
+It can be used to invoke (call) a method with an owner object as an argument (parameter).
+With call(), an object can use a method belonging to another object.
+This example calls the fullName method of person, using it on person1:
+*/
+var person = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+var person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+var person2 = {
+  firstName:"Mary",
+  lastName: "Doe"
+}
+person.fullName.call(person1);  // Will return "John Doe"
+
+
+//This example calls the fullName method of person, using it on person2:
+var person = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+var person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+var person2 = {
+  firstName:"Mary",
+  lastName: "Doe"
+}
+person.fullName.call(person2);  // Will return "Mary Doe"
+
+
+/*The call() Method with Arguments
+The call() method can accept arguments: */
+var person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+var person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+person.fullName.call(person1, "Oslo", "Norway");
+
+
+/*
+Method Reuse
+With the apply() method, you can write a method that can be used on different objects.
+The JavaScript apply() Method
+The apply() method is similar to the call() method (previous chapter).
+In this example the fullName method of person is applied on person1:
+*/
+var person = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+var person1 = {
+  firstName: "Mary",
+  lastName: "Doe"
+}
+person.fullName.apply(person1);  // Will return "Mary Doe"
+
+/*
+The Difference Between call() and apply()
+The difference is:
+- The call() method takes arguments separately.
+- The apply() method takes arguments as an array.
+*/
+
+//The apply() Method with Arguments. The apply() method accepts arguments in an array:
+var person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+var person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+person.fullName.apply(person1, ["Oslo", "Norway"]);
+
+// Compared with the call() method:
+var person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+var person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+person.fullName.call(person1, "Oslo", "Norway");
+
+</script>

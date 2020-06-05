@@ -1,0 +1,61 @@
+<script>
+/*
+A closure is a function having access to the parent scope, even after the parent function has closed.
+*/
+
+function parentFunction(parentParam1) {
+	var parentParam2 = 10;
+	
+	// JavaScript Nested Functions
+	return function closureFunction(closureParam) {
+		return parentParam1 + parentParam2 + closureParam;
+	}
+}
+
+console.log(parentFunction(1)(100));
+
+//---------------------------------------------
+function parentFunction2() {
+  return function closureFunction(closureParam) {
+	return 100;
+  }
+}
+
+console.log(parentFunction2()());
+
+//----------------------------------------------
+var parentFunction3 = (function () {
+  var counter = 0;
+  return function () {
+	counter += 1; return counter
+  }
+})();
+
+console.log(parentFunction3()); // print 1
+console.log(parentFunction3()); // print 2
+console.log(parentFunction3()); // print 3
+
+//----------------------------------------------
+function parentFunction4(parentParam1) {
+  var parentParam2 = 10;
+  function closureFunction1(closureParam) {
+	return parentParam1+parentParam2+closureParam;
+  }
+  function closureFunction2(closureParam) {
+	return parentParam1+parentParam2+closureParam;
+  }
+  return function closureFunction3(closureParam) {
+	return closureFunction1(300) + closureFunction2(400) + closureParam;
+  }
+}
+console.log(parentFunction4(1)(100));
+
+//----------------------------------------------
+var parentFunction5 = (function () {
+  console.log("parent say");
+  return function () {
+	console.log("closure say");
+  }
+})();
+parentFunction5();
+</script>

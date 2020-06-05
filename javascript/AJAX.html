@@ -1,0 +1,72 @@
+<script>
+/*
+AJAX is a developer's dream, because you can:
+
+1. Read data from a web server - after the page has loaded
+2. Update a web page without reloading the page
+3. Send data to a web server - in the background
+*/
+
+/*
+AJAX - Using a Callback Function
+
+A callback function is a function passed as a parameter to another function.
+If you have more than one AJAX task in a website, you should create one function for executing the XMLHttpRequest object, and one callback function for each AJAX task.
+The function call should contain the URL and what function to call when the response is ready.
+*/
+loadDoc("https://api.coindesk.com/v1/bpi/currentprice.json", myFunction1);
+
+loadDoc("https://api.coindesk.com/v1/bpi/currentprice.json", myFunction2);
+
+loadDoc("http://localhost:8082", myFunction3);
+
+function loadDoc(url, cFunction) {
+  var xhttp;
+  xhttp=new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      cFunction(this);
+    }
+  };
+  xhttp.open("GET", url, true);
+  xhttp.send();
+}
+
+function myFunction1(xhttp) {
+  // action goes here
+  console.log(xhttp.responseText);
+} 
+function myFunction2(xhttp) {
+  // action goes here
+  console.log(JSON.parse(xhttp.responseText).bpi);
+}
+
+function myFunction3(xhtp) {
+    document.getElementById("testFunction3").innerHTML = xhtp.responseText;
+}
+
+
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("testPOST").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("POST", "demo_post2.asp", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("fname=Henry&lname=Ford");
+}
+
+
+/*
+Note: 
+
+Synchronous XMLHttpRequest (async = false) is not recommended because the JavaScript will stop executing until the server response is ready. If the server is busy or slow, the application will hang or stop.
+Synchronous XMLHttpRequest is in the process of being removed from the web standard, but this process can take many years.
+Modern developer tools are encouraged to warn about using synchronous requests and may throw an InvalidAccessError exception when it occurs.
+*/
+</script>
+
+<div id="testFunction3"></div>
+<div id="testPOST"></div>

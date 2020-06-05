@@ -31,7 +31,7 @@ Spring Beans & Dependency Injection
 Spring Boot - Runners
 Spring Boot - Application Properties
 Spring Boot - Logging
-Building RESTful Web Services - use @RestController
+Building RESTful Web Services - use @RestController, handle exception use: ResponseEntityExceptionHandler 
 Spring Boot - Exception Handling 	
 Spring Boot - Interceptor
 Spring Boot - Servlet Filter

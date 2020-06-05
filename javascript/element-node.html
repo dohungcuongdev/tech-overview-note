@@ -1,0 +1,167 @@
+<h1 id="id01">My First Page</h1>
+<p id="id02">Hello!</p>
+
+<p class="intro">Intro</p>
+
+<div id="main">
+    <p>Main</p>
+</div>
+
+<form id="robby">
+    <input type="button" onclick="alert(document.forms[0].id);" value="robby's form" />
+</form>
+
+<form id="dave">
+    <input type="button" onclick="alert(document.forms[1].id);" value="dave's form" />
+</form>
+
+<form id="paul">
+    <input type="button" onclick="alert(document.forms[2].id);" value="paul's form" />
+</form>
+
+<form name="login">
+    <input name="email" type="email">
+    <input name="password" type="password">
+    <button type="submit">Log in</button>
+</form>
+
+<a href="https://www.w3schools.com/html/">Visit our HTML tutorial</a>
+
+<div id="div1">
+    <p id="p1">This is a paragraph.</p>
+    <p id="p2">This is another paragraph.</p>
+</div>
+
+<p class="footer">Footer</p>
+
+<script>
+
+    var x = document.getElementById("main"); // return Node
+    var y = x.getElementsByTagName("p"); // return HTMLCollection
+    var z = document.getElementsByClassName("footer");  // return HTMLCollection
+    var v = document.querySelectorAll("p.intro"); // return NodeList
+
+    var index = 0;
+    var myforms = document.forms; // return HTMLCollection
+    var selectForm = document.forms[index]; // return Node
+    var selectFormElement = document.forms[index].elements[index]; // return Node
+
+    var loginForm = document.forms.login; // Or document.forms['login'] // return Node
+    loginForm.elements.email.placeholder = 'test@example.com';
+    loginForm.elements.password.placeholder = 'password';
+
+    var links = document.links; // return HTMLCollection
+
+    /*
+        An HTMLCollection object is an array-like list (collection) of HTML elements.
+
+        A NodeList object is a list (collection) of nodes extracted from a document.
+        A NodeList object is almost the same as an HTMLCollection object.
+        Some (older) browsers return a NodeList object instead of an HTMLCollection for methods like getElementsByClassName().
+        All browsers return a NodeList object for the property childNodes. 
+        Most browsers return a NodeList object for the method querySelectorAll().
+    */
+
+    console.log(x);
+    console.log(y);
+    console.log(z);
+    console.log(v);
+    console.log(myforms);
+    console.log(selectForm);
+    console.log(selectFormElement);
+    console.log(loginForm);
+    console.log(links);
+
+    x.style.color = "green"; // change color of x into green
+
+    //The value of the text node can be accessed by the node's innerHTML property:
+    var myTitle = document.getElementById("id01").innerHTML;
+    console.log(myTitle);
+
+    // Accessing the innerHTML property is the same as accessing the nodeValue of the first child:
+    var myHeader = document.getElementById("id01").firstChild.nodeValue;
+    console.log(myHeader);
+
+    // Accessing the first child can also be done like this:
+    var greeting = document.getElementById("id02").childNodes[0].nodeValue;
+    console.log(greeting);
+    /*
+    The nodeValue property specifies the value of a node.
+    nodeValue for element nodes is null
+    nodeValue for text nodes is the text itself
+    nodeValue for attribute nodes is the attribute value
+    */
+
+    // change value of node id="id02"
+    document.getElementById("id02").innerHTML = document.getElementById("id01").innerHTML;
+
+    // log The full document
+    console.log(document.documentElement);
+
+    /* The nodeName property specifies the name of a node.
+    nodeName is read-only
+    nodeName of an element node is the same as the tag name
+    nodeName of an attribute node is the attribute name
+    nodeName of a text node is always #text
+    nodeName of the document node is always #document */
+    console.log(document.getElementById("id01").nodeName); // print h1
+
+    // The nodeType property is read only. It returns the type of a node.
+    console.log(document.getElementById("id01").nodeType); // print 1
+
+    // access HTMLCollection to get buttons of all the forms and change theirs color
+    var myformsLength = myforms.length;
+    for (let i = 0; i < myformsLength; i++) {
+        let myForm = myforms[i];
+        let myFormLength = myForm.length;
+        for (let j = 0; j < myFormLength; j++) {
+            let myFormElement = myForm.elements[0];
+            myFormElement.style.color = "red";
+        }
+    }
+
+    // Access NodeList children and change color
+    for (let i = 0; i < v.length; i++) {
+        v[i].style.color = "orange";
+    }
+
+    // Create Node - To add a new element to the HTML DOM, you must create the element (element node) first, and then append it to an existing element.
+    var para = document.createElement("p"); //This code creates a new <p> element:
+    var node = document.createTextNode("This is new div1 append."); //To add text to the <p> element, you must create a text node first. This code creates a text node:
+    para.appendChild(node); //Then you must append the text node to the <p> element:
+    var element = document.getElementById("div1"); //This code finds an existing element:
+    element.appendChild(para); //This code appends the new element to the existing element:
+
+    function createNewNode(text) {
+        var para = document.createElement("p");
+        var node = document.createTextNode(text);
+        para.appendChild(node);
+        return para;
+    }
+
+    // create node and append directy to body
+    //document.body.appendChild(para); // this will be not working because node must be unque
+    var para2 = createNewNode("This is new body append.");
+    document.body.appendChild(para2); // need to create new para and pass to append function
+    /*  The appendChild() method in the previous example, appended the new element as the last child of the parent.
+        If you don't want that you can use the insertBefore() method:
+    */
+    // Create Node - before p1
+    var para3 = createNewNode("This is new div1 insertBefore p1.");
+    var element = document.getElementById("div1");
+    var child = document.getElementById("p1");
+    element.insertBefore(para3, child); // the new node will be displayed before node id="p1"
+
+    // Removing Existing HTML Elements
+    // Note: The node.remove() method does not work in any versions of the Internet Explorer browser.
+    var parent = document.getElementById("div1");
+    var child = document.getElementById("p1");
+    parent.removeChild(child); // node id="p1" will be removed from node id="div1"
+
+    // Replacing HTML Elements 
+    var para4 = createNewNode("This is new div1 replace p2.");
+    var parent = document.getElementById("div1");
+    var child = document.getElementById("p2");
+    parent.replaceChild(para4, child);
+
+</script>

@@ -1,2 +1,5 @@
 
 https://www.w3schools.com/js/js_function_closures.asp
+
+
+https://stackoverflow.com/questions/15455009/javascript-call-apply-vs-bind

@@ -1,0 +1,66 @@
+Compare with VM:
+VM: Using VM software, for example, Ubuntu can be installed inside a Windows. And they would both run at the same time. It is like building a PC, with its core components like CPU, RAM, Disks, Network Cards etc, within an operating system and assemble them to work as if it was a real PC. This way, the virtual PC becomes a "guest" inside an actual PC which with its operating system, which is called a host.
+Container: It's same as above but instead of using an entire operating system, it cut down the "unnecessary" components of the virtual OS to create a minimal version of it. This lead to the creation of LXC (Linux Containers).It's faster than VM Machines.
+Docker: A docker container, unlike a virtual machine and container, does not require or include a separate operating system. Instead, it relies on the Linux kernel's functionality and uses resource isolation.
+Purpose of Docker: Its primary focus is to automate the deployment of applications inside software containers and the automation of operating system level virtualization on Linux. It's more lightweight than standard Containers and boots up in seconds. 
+
+Compare with Kubernetes:
+Docker (and containers in general) solve the problem of packaging an application and its dependencies. This makes it easy to ship and run everywhere.
+Kubernetes is one layer of abstraction above containers. It is a distributed system that controls/manages containers.
+
+Docker's concept:
+Docker Client: là cách mà bạn tương tác với docker thông qua command trong terminal. Docker Client sẽ sử dụng API gửi lệnh tới Docker Daemon.
+Docker Daemon: là server Docker cho yêu cầu từ Docker API. Nó quản lý images, containers, networks và volume.
+Docker Volumes: là cách tốt nhất để lưu trữ dữ liệu liên tục cho việc sử dụng và tạo apps.
+Docker Registry: là nơi lưu trữ riêng của Docker Images. Images được push vào registry và client sẽ pull images từ registry. Có thể sử dụng registry của riêng bạn hoặc registry của nhà cung cấp như : AWS, Google Cloud, Microsoft Azure.
+Docker Hub: là Registry lớn nhất của Docker Images ( mặc định). Có thể tìm thấy images và lưu trữ images của riêng bạn trên Docker Hub ( miễn phí).
+Docker Repository: là tập hợp các Docker Images cùng tên nhưng khác tags. VD: golang:1.11-alpine.
+Docker Networking: cho phép kết nối các container lại với nhau. Kết nối này có thể trên 1 host hoặc nhiều host.
+Docker Compose: là công cụ cho phép run app với nhiều Docker containers 1 cách dễ dàng hơn. Docker Compose cho phép bạn config các command trong file docker-compose.yml để sử dụng lại. Có sẵn khi cài Docker.
+Docker Swarm: để phối hợp triển khai container.
+Docker Services: là các containers trong production. 1 service chỉ run 1 image nhưng nó mã hoá cách thức để run image — sử dụng port nào, bao nhiêu bản sao container run để service có hiệu năng cần thiết và ngay lập tức.
+
+Dockerfile: 
+FROM — chỉ định image gốc: python, unbutu, alpine…
+LABEL — cung cấp metadata cho image. Có thể sử dụng để add thông tin maintainer. Để xem các label của images, dùng lệnh docker inspect.
+ENV — thiết lập một biến môi trường.
+RUN — Có thể tạo một lệnh khi build image. Được sử dụng để cài đặt các package vào container.
+COPY — Sao chép các file và thư mục vào container.
+ADD — Sao chép các file và thư mục vào container.
+CMD — Cung cấp một lệnh và đối số cho container thực thi. Các tham số có thể được ghi đè và chỉ có một CMD.
+WORKDIR — Thiết lập thư mục đang làm việc cho các chỉ thị khác như: RUN, CMD, ENTRYPOINT, COPY, ADD,…
+ARG — Định nghĩa giá trị biến được dùng trong lúc build image.
+ENTRYPOINT — cung cấp lệnh và đối số cho một container thực thi.
+EXPOSE — khai báo port lắng nghe của image.
+VOLUME — tạo một điểm gắn thư mục để truy cập và lưu trữ data.
+
+create Dockerfile -> build image -> from one image we can build multiple containers
+
+Basic command in docker:
+List image/container:
+$ docker image/container ls
+Delete image/container:
+$ docker image/container rm <tên image/container >
+Delete all image hiện có:
+$ docker image rm $(docker images –a –q)
+List all container hiện có:
+$ docker ps –a
+Stop a container cụ thể:
+$ docker stop <tên container>
+Run container từ image và thay đổi tên container:
+$ docker run –name <tên container> <tên image>
+Stop all container:
+$ docker stop $(docker ps –a –q)
+Delete all container hiện có:
+$ docker rm $(docker ps –a –q)
+Show log a container:
+$ docker logs <tên container>
+Build một image từ container:
+$ docker build -t <tên container> .
+Tạo một container chạy ngầm:
+$ docker run -d <tên image>
+Tải một image trên docker hub:
+$ docker pull <tên image>
+Start một container:
+$ docker start <tên container>
+

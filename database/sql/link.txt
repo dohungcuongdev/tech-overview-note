@@ -19,3 +19,11 @@ https://stackoverflow.com/questions/45141673/what-exactly-is-database-schema
 https://dev.mysql.com/doc/refman/8.0/en/commit.html
 
 https://www.mysqltutorial.org/mysql-stored-procedure-tutorial.aspx/
+
+https://www.w3schools.com/sql/sql_union.asp
+
+https://www.w3schools.com/sql
+
+https://www.w3schools.com/sql/sql_create_index.asp
+
+https://stackoverflow.com/questions/5706437/whats-the-difference-between-inner-join-left-join-right-join-and-full-join/6188334

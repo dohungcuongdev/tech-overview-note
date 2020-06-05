@@ -1,0 +1,229 @@
+<script>
+// Without callback
+function printString(string){
+  setTimeout(
+    () => {
+      console.log(string)
+    }, 
+    Math.floor(Math.random() * 100) + 1
+  )
+}
+
+function printAll(){
+  printString("A")
+  printString("B")
+  printString("C")
+}
+
+// printAll(); // rem to test the next one
+
+/* 
+You will notice that A, B, and C print in a different and random order each time you call printAll!
+This is because these functions are asynchronous. Each function gets executed in order, but each one is independent with it’s own setTimeout. They won’t wait for the last function to finish before they start.
+This is super annoying, so let’s fix it with a callback.
+*/
+
+// ----------------------------------------------------------------------------------------------------
+// With callback
+function printStringWithCallback(string, callback){
+  setTimeout(
+    () => {
+      console.log(string)
+      callback()
+    }, 
+    Math.floor(Math.random() * 100) + 1
+  )
+}
+
+function printAllWithCallback(){
+  printStringWithCallback("A", () => {
+    printStringWithCallback("B", () => {
+      printStringWithCallback("C", () => {})
+    })
+  })
+}
+
+//printAllWithCallback(); // rem to test the next one
+
+/*
+Well, the code is a lot uglier now, but at least it works! Each time you call printAll, you get the same result.
+The problem with callbacks is it creates something called “Callback Hell.” Basically, you start nesting functions within functions within functions, and it starts to get really hard to read the code.
+*/
+
+// ----------------------------------------------------------------------------------------------------
+// Promises
+/*
+Promises try to fix this nesting problem. Let’s change our function to use Promises
+*/
+function printStringPromise(string){
+  return new Promise((resolve, reject) => {
+    setTimeout(
+      () => {
+       console.log(string)
+       resolve()
+      }, 
+     Math.floor(Math.random() * 100) + 1
+    )
+  })
+}
+
+function printAllPromise(){
+  printStringPromise("A")
+  .then(() => {
+    return printStringPromise("B")
+  })
+  .then(() => {
+    return printStringPromise("C")
+  })
+}
+
+/*
+This is called a Promise Chain. You can see that the code returns the result of the function (which will be a Promise), and this gets sent to the next function in the chain.
+The code is no longer nested but it still looks messy!
+By using features of arrow functions, we can remove the “wrapper” function. The code becomes cleaner, but still has a lot of unnecessary parenthesis:
+*/
+
+function printAllPromise2(){
+  printStringPromise("A")
+  .then(() => printStringPromise("B"))
+  .then(() => printStringPromise("C"))
+}
+
+//printAllPromise(); // rem to test the next one
+//printAllPromise2(); // rem to test the next one
+
+
+// ----------------------------------------------------------------------------------------------------
+// Async / Await
+
+/*
+Await is basically syntactic sugar for Promises. It makes your asynchronous code look more like synchronous/procedural code, which is easier for humans to understand.
+The printString function doesn’t change at all from the promise version.
+*/
+async function printAllAsyncAwait(){
+  await printStringPromise("A")
+  await printStringPromise("B")
+  await printStringPromise("C")
+}
+
+//printAllAsyncAwait(); // rem to test the next one
+
+
+// ----------------------------------------------------------------------------------------------------
+// More example
+function mergeStringPromise(string1, string2){
+  return new Promise((resolve, reject) => {
+    setTimeout(
+      () => {
+	   if (typeof string1 !== 'string') {
+			reject('error: '+string1+' is not a string');
+			return; // need return to break the function cause reject or resolve do not break the function
+	   }
+	   if (typeof string2 !== 'string') {
+			reject('error: '+string2+' is not a string');
+			return; // need return to break the function cause reject or resolve do not break the function
+	   }
+	   let mergedString = string1 + string2;
+       console.log(mergedString)
+       resolve(mergedString)
+      }, 
+     Math.floor(Math.random() * 100) + 1
+    )
+  })
+}
+
+function mergeAllPromise() {
+	mergeStringPromise("A", "B")
+	.then((mergedString) => {
+		return mergeStringPromise(mergedString, "C");
+	})
+	.then((mergedString) => mergeStringPromise(mergedString, "D"))
+	.then((mergedString) => mergeStringPromise(mergedString, "E"))
+	.then((mergedString) => console.log("mergedString="+mergedString))
+}
+
+//mergeAllPromise(); // rem to test the next one
+
+async function mergeAllAsyncAwait() {
+	let mergedString1 = await mergeStringPromise("A", "B");
+	let mergedString2 = await mergeStringPromise(mergedString1, "C");
+	let mergedString3 = await mergeStringPromise(mergedString2, "D");
+	let mergedString4 = await mergeStringPromise(mergedString3, "E");
+	console.log("mergedString="+mergedString4);
+}
+
+//mergeAllAsyncAwait(); // rem to test the next one
+
+/*
+async function allway return a promise so if you call this function other functions, they may be declared async functions as well 
+await cannot be used in a function without async keyword
+*/
+
+async function mergeAllAsyncAwait2() {
+	let mergedString1 = await mergeStringPromise("A", "B");
+	let mergedString2 = await mergeStringPromise(mergedString1, "C");
+	let mergedString3 = await mergeStringPromise(mergedString2, "D");
+	let mergedString4 = await mergeStringPromise(mergedString3, "E");
+	return mergedString4;
+}
+
+/*
+async function foo() {
+   return 1
+}
+...is equivalent to:
+
+function foo() {
+   return Promise.resolve(1)
+}
+
+-----------------------
+async function foo() {
+   await 1
+}
+...is equivalent to:
+
+function foo() {
+   return Promise.resolve(1).then(() => undefined)
+}
+*/
+
+function toCallMergeAllAsyncAwait() {
+	mergeAllAsyncAwait2()
+	.then((mergedString) => console.log("mergedString="+mergedString))
+}
+
+//toCallMergeAllAsyncAwait(); // rem to test the next one
+
+async function asyncToCallMergeAllAsyncAwait() {
+	let mergedString = await mergeAllAsyncAwait2();
+	console.log("mergedString="+mergedString);
+}
+
+//asyncToCallMergeAllAsyncAwait(); // rem to test the next one
+
+
+// ----------------------------------------------------------------------------------------------------
+// Exception Handler
+function mergeAllPromiseAndHandleException() {
+	mergeStringPromise(null, null)
+	.then((mergedString) => console.log(mergedString))
+	.catch((error) => console.error(error))
+	.finally(() => console.log("finally"))
+}
+
+mergeAllPromiseAndHandleException(); // rem to test the next one
+
+async function mergeAllAsyncAwaitAndHandleException() {
+  try {
+    let mergedString = await mergeStringPromise(null, null);
+    console.log(mergedString);
+  } catch (error) {
+    console.error(error);
+  } finally {
+	console.log("finally");
+  }
+}
+
+//mergeAllAsyncAwaitAndHandleException(); // rem to test the next one
+</script>
