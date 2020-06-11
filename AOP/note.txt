@@ -1,0 +1,61 @@
+Aspect Oriented Programming
+
+AOP is a way to modify existing classes in a code base to embellish them or change their behavior based on rules defined separately. This modification can be done before the classes are put into a jar/war, or can happen dynamically while the code is being loaded.
+
+Aspect Oriented Programming (AOP) là kiểu lập trình cho phép phân tách chương trình thành các module tách biệt, không phụ thuộc nhau. 
+Chương trình kết hợp các module lại khi hoạt động, nhằm thực hiện các chức năng. 
+Tuy nhiên, chỉ cần chỉnh sửa một module nào đó nếu cần sửa đổi chức năng.
+AOP cho phép chúng ta thêm xử lý mới vào app mà không phải chỉnh sửa code của app đó.
+Trong Spring AOP, có 4 loại advice được hỗ trợ:
+Before advice: chạy trước khi method được thực thi
+After returning advice: Chạy sau khi method trả về một kết quả
+After throwing adivce: Chạy khi method ném ra một exception
+Around advice: Chạy khi method được thực thi (Bao gồm cả 3 loại advice trên)
+
+For example: Logging, Transaction and security are some Aspects
+
+@Aspect
+@Configuration
+public class AfterAopAspect {
+
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
+	@AfterReturning(value = "execution(* com.example.demo.repositories.*.*(..))", 
+			returning = "result")
+	public void afterDAOsReturning(JoinPoint joinPoint, Object result) {
+		//Advice
+		logger.info("{} returned with value {}", joinPoint, result);
+	}
+}
+
+@Aspect
+@Configuration
+public class AroundAopAspect {
+	
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
+	@Around("execution(* com.example.demo.repositories.*.*(..))")
+	public void aroundDAOs(JoinPoint joinPoint){
+		// Advice go here
+		logger.info("around execution of {}", joinPoint);
+	}
+}
+
+@Aspect
+@Configuration
+public class BeforeAopAspect {
+    
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
+	@Before("execution(* com.example.demo.repositories.*.*(..))")
+	public void beforeDAOs(JoinPoint joinPoint){
+		// Advice go here
+		logger.info("before execution of {}", joinPoint);
+	}
+}
+
+
+Advise defines what needs to be apply.
+Joinpoint is where an Advice is apply.
+Pointcut is a combination of different Jointpoints.
+Aspect is applying an Advice at Pointcuts.

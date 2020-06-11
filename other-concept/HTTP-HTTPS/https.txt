@@ -1,0 +1,11 @@
+HTTP: HyperText Transfer Protocol is the protocol used by your browser and web servers to communicate and exchange information.
+HTTPS is the secured version of HTTP.
+HTTPs use SSL/TLS to encrypt and decrypt data (TLS is the new name for SSL, HTTPS is HTTP-within-SSL/TLS)
+
+1) Generate a shared symmetric key which can only be known between client and server, no one else knows it
+2) With this shared symmetric key, client and server is able to safely communicate with each other without worrying about information being intercepted and decrypted by others.
+
+So the question becomes, how can the client and server generate a secret shared key without being known by others in this open internet? This is the asymmetric algorithm coming to play, a demo flow is like below:
+-- Client receives public key from server.
+-- Client generates a key string "DummySharedKey" which will be later used as shared key, and encrypt it into "7$&^^%####LDD!!@" with server's public key, Man-in-the-middle may have the public key and might be able to intercept the encrypted data, but the data is useless to him as the data can only be decrypted by sever's private key.
+-- Server receives the encrypted key string "7$&^^%####LDD!!@", and decrypt it into "DummySharedKey" with its private key

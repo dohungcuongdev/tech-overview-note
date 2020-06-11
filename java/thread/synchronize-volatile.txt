@@ -1,0 +1,14 @@
+volatile synchronize forkJoinPool
+
+
+synchronize: make sure that only one thread can access the resource at a given point in time
+volatile: guarantees that any thread that reads a field will see the most recently written value
+
+
+
+Volatile Keyword																				Synchronization Keyword
+Volatile keyword is a field modifier.															Synchronized keyword modifies code blocks and methods.
+The thread cannot be blocked for waiting in case of volatile.									Threads can be blocked for waiting in case of synchronized.
+It improves thread performance.																	Synchronized methods degrade the thread performance.
+It synchronizes the value of one variable at a time between thread memory and main memory.		It synchronizes the value of all variables between thread memory and main memory.
+Volatile fields are not subject to compiler optimization.										Synchronize is subject to compiler optimization.

@@ -1,0 +1,34 @@
+Set implementation: duplicate values are not allowed.
+HashSet: normal version.  Objects are inserted based on their hash code. NULL elements are allowed
+LinkedHashSet is an ordered version of HashSet. It extends HashSet class and implements Set interface. LinkedHashSet maintains insertion order. NULL elements are allowed.
+TreeSet implements the SortedSet interface. NULL elements are not allowed. TreeSet maintains sorting order or elements. (ascending order)
+
+1) Duplicates : All three implements Set interface means they are not allowed to store duplicates.
+2) Thread safety : HashSet, TreeSet and LinkedHashSet are not thread-safe, if you use them in multi-threading environment where at least one Thread modifies Set you need to externally synchronize them.
+3) Fail-Fast Iterator : Iterator returned by TreeSet, LinkedHashSet and HashSet are fail-fast Iterator. i.e. If Iterator is modified after its creation by any way other than Iterators remove() method, it will throw ConcurrentModificationException with best of effort. read more about fail-fast vs fail-safe Iterator here
+
+Performance : HashSet > LinkedHashSet > TreeSet
+When we iterate through a HashSet, the order is unpredictable while it is predictable in case of LinkedHashSet.
+
+Example:
+Set<String> set = ...;// using new HashSet<>() OR new LinkedHashSet<>() OR new TreeSet<>()
+set.add("2");
+set.add("1");
+set.add("3");
+for(String value : set){
+   System.out.println(value);
+}  
+HashSet output: (will be unpredictable)
+1
+3
+2
+
+LinkedHashSet output:
+2
+1
+3
+
+Tree output:
+1
+2
+3

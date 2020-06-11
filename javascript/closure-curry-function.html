@@ -1,0 +1,109 @@
+<script>
+/*
+A closure is a function having access to the parent scope, even after the parent function has closed.
+The most simple example of using closures is in something called currying
+or when you want to solve the problem similar to the probleim in this link (https://www.w3schools.com/js/js_function_closures.asp) 
+*/
+
+function parentFunction(parentParam1) {
+	var parentParam2 = 10;
+	
+	// JavaScript Nested Functions
+	return function closureFunction(closureParam) {
+		return parentParam1 + parentParam2 + closureParam;
+	}
+}
+
+console.log(parentFunction(1)(100));
+
+//---------------------------------------------
+function parentFunction2() {
+  return function closureFunction(closureParam) {
+	return 100;
+  }
+}
+
+console.log(parentFunction2()());
+
+//----------------------------------------------
+var parentFunction3 = (function () {
+  var counter = 0;
+  return function () {
+	counter += 1; return counter
+  }
+})();
+
+console.log(parentFunction3()); // print 1
+console.log(parentFunction3()); // print 2
+console.log(parentFunction3()); // print 3
+
+//----------------------------------------------
+function parentFunction4(parentParam1) {
+  var parentParam2 = 10;
+  function closureFunction1(closureParam) {
+	return parentParam1+parentParam2+closureParam;
+  }
+  function closureFunction2(closureParam) {
+	return parentParam1+parentParam2+closureParam;
+  }
+  return function closureFunction3(closureParam) {
+	return closureFunction1(300) + closureFunction2(400) + closureParam;
+  }
+}
+console.log(parentFunction4(1)(100));
+
+//----------------------------------------------
+var parentFunction5 = (function () {
+  console.log("parent say");
+  return function () {
+	console.log("closure say");
+  }
+})();
+parentFunction5();
+
+
+/*
+Currying is an advanced technique of working with functions. It’s used not only in JavaScript, but in other languages as well.
+Currying is a transformation of functions that translates a function from callable as f(a, b, c) into callable as f(a)(b)(c).
+Currying doesn’t call a function. It just transforms it.
+
+Curry functions are neat when used to carry containers of reusable code. 
+Basically you take a function with multiple arguments and you know that one of those arguments will have specific value but the other is undecided. 
+Therefor by using curry, as a fancy partial application, you can create a new function which will allow you to deal only with the undecided arguments without repeating your code.
+*/
+
+const notCurry = (x, y, z) => x + y + z; // a regular function
+const curry = x => y => z => x + y + z; // a curry function
+
+function notCurry2(x, y, z) {  // the second way to write function notCurry
+	return x+y+z;
+}
+
+function curry2(x) {  // the second way to write function curry
+	return function sub1(y) {
+		return function sub2(z) {
+			return x+y+z;
+		}
+	}
+}
+
+console.log(notCurry(1,2,3));
+console.log(notCurry2(1,2,3));
+
+console.log(curry(1)(2)(3));
+console.log(curry2(1)(2)(3));
+
+
+let variableWithoutWrittingFunctionToCalulate = (function() {
+	console.log("Assume that this function will do a lot of thing then find out that x = 100");
+	let x = 100;
+	return function() {
+		console.log("Assume that this function will do a lot of thing then return x+200");
+		return x+200;
+	}
+})()();
+
+console.log(variableWithoutWrittingFunctionToCalulate);
+
+
+</script>

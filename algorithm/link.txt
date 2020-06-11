@@ -6,10 +6,6 @@ https://stackoverflow.com/questions/36363550/difference-in-space-complexity-of-d
 
 http://scanftree.com/Data_Structure/time-complexity-and-space-complexity-comparison-of-sorting-algorithms
 
-https://www.quora.com/In-Java-how-will-you-decide-when-to-use-a-List-Set-or-a-Map-collection
-
-https://stackoverflow.com/questions/322715/when-to-use-linkedlist-over-arraylist-in-java
-
 https://stackoverflow.com/questions/43891373/how-can-a-sorting-algorithm-have-a-space-complexity-of-o1
 
 https://courses.cs.northwestern.edu/311/html/space-complexity.html

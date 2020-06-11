@@ -1,0 +1,6 @@
+Singleton pattern will ensure that there is only one instance of a class is created in the Java Virtual Machine
+
+Use case: 
+- Logger 
+- Configuration File
+- Cache

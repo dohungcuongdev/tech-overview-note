@@ -1,0 +1,7 @@
+cách Https hoạt động:
+
+server sẽ phải đăng kí keystore với CA, Certificate Authority (CA) là tổ chức phát hành, chứng thực các loại chứng thư số cho người dùng, doanh nghiệp, máy chủ (server), mã nguồn, phần mềm
+keystore này gồm 1 pair public key và private key, public key dùng để encrypt data, và chỉ có private key mới có thể decrypt data
+server sẽ send public key cho client
+client muốn gửi data cho server thì sẽ dùng public key để encrypt data, chính vì vậy hacker sẽ không thể decrypt data đó đc vì không có private key
+data đến server thì server chỉ cần sử dụng private key để decrypt nó

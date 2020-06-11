@@ -1,0 +1,43 @@
+ArrayList is implemented as a resizable array. As more elements are added to ArrayList, its size is increased dynamically. It's elements can be accessed directly by using the get and set methods, since ArrayList is essentially an array.
+LinkedList is implemented as a double linked list. Its performance on add and remove is better than Arraylist, but worse on get and set methods.
+Vector is similar with ArrayList, but it is synchronized.
+
+ArrayList is a better choice if your program is thread-safe. Vector and ArrayList require more space as more elements are added. Vector each time doubles its array size, while ArrayList grow 50% of its size each time. LinkedList, however, also implements Queue interface which adds more methods than ArrayList and Vector, such as offer(), peek(), poll(), etc.
+Note: The default initial capacity of an ArrayList is pretty small. It is a good habit to construct the ArrayList with a higher initial capacity. This can avoid the resizing cost.
+
+LinkedList is fast for adding and deleting elements, but slow to access a specific element. ArrayList is fast for accessing a specific element but can be slow to add to either end, and especially slow to delete in the middle.
+
+ArrayList is what you want. LinkedList is almost always a (performance) bug.
+Why LinkedList sucks:
+It uses lots of small memory objects, and therefore impacts performance across the process.
+Lots of small objects are bad for cache-locality.
+Any indexed operation requires a traversal, i.e. has O(n) performance. This is not obvious in the source code, leading to algorithms O(n) slower than if ArrayList was used.
+Getting good performance is tricky.
+Even when big-O performance is the same as ArrayList, it is probably going to be significantly slower anyway.
+It's jarring to see LinkedList in source because it is probably the wrong choice.
+
+Vectors are synchronized, ArrayLists are not.
+Use ArrayLists if there is no specific requirement to use Vectors.
+If multiple threads access an ArrayList concurrently then we must externally synchronize the block of code which modifies the list either structurally or simply modifies an element. Structural modification means addition or deletion of element(s) from the list. Setting the value of an existing element is not a structural modification.
+Collections.synchronizedList is normally used at the time of creation of the list to avoid any accidental unsynchronized access to the list.
+make ArrayList thread safe: Collections.synchronizedList(new ArrayList<YourClassNameHere>()
+
+Vector is a broken class that is not threadsafe, despite it being "synchronized" and is only used by students and other inexperienced programmers.
+ArrayList is the go-to List implementation used by professionals and experienced programmers.
+Professionals wanting a threadsafe List implementation use a CopyOnWriteArrayList.
+
+As stated above, every single method of Vector is thread-safe by its own because of synchronized modifiers. But, if you need some complex operations, such as get() or add() based on condition which is related to the same vector, this is not thread-safe. See example below:
+if (vector.size() > 0) {
+    System.out.println(vector.get(0));
+}
+This code has a race condition between size() and get() - the size of vector might be changed by other thread after our thread verified the vector is not empty, and thus get() call may return unexpected results. To avoid this, the sample above should be changed like this:
+synchronized (vector) {
+    if (vector.size() > 0) {
+        System.out.println(vector.get(0));
+    }
+}
+Now this "get-if-not-empty" operation is atomic and race condition-free.
+
+
+=> use ArrayList instead LinkedList or Vector - it's not thread-safe which results in a better performance for single-thread applications.
+=> want ArrayList thread safe, use Collections.synchronizedList(new ArrayList<YourClassNameHere>() or CopyOnWriteArrayList

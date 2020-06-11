@@ -1,0 +1,13 @@
+If you have already pushed your branch somewhere or someone pulled from you, your only option is to git revert $COMMIT....
+This will create a commit that undoes whatever you've done in commit(s) $COMMIT....
+For example, to revert the last three commits:
+git revert HEAD~2..HEAD
+
+If you have kept your commits entirely local and private, you can simply  git reset $COMMIT.
+This will move your branch pointer to $COMMIT so the branch no longer includes the following commits.
+Depending on the state of your index and working tree, you might want any of the options git reset --soft $COMMIT or git reset --hard $COMMIT.
+For example, to reset your branch to the commit before the last three:
+git reset HEAD~3
+
+git rebase: reapply new commits in a branch on top of another branch.
+You use it when you want to copy or "move" some commits from one commit that they are based on, to be based on another commit (another base), hence "rebase".

@@ -1,0 +1,116 @@
+1. init git project
+git init
+
+
+
+2. add git URL to project
+git remote add origin <project-git-URL>
+
+
+
+3. clone project/pull new code :
+git clone <project-git-URL>
+git fetch origin -> git merge
+git pull origin <branch-name>
+
+
+
+4. git add adds your modified files to the queue to be committed later. Files are not committed
+- add all changed files and folders:
+git add .
+
+- add changed file:
+git add <file-url>
+
+- add changed folder:
+git add <folder-url>
+
+- check status
+git status
+
+
+
+5. git commit commits the files that have been added and creates a new revision with a log... If you do not add any files, git will not commit anything. You can combine both actions with git commit -a
+git commit -m "your commit message"
+
+
+
+6. git push sends all the pending changes to the remote repository to which your branch is mapped (eg. on GitHub).
+- add push to master branch:
+git push origin master
+
+- add push to anther branch:
+git push origin <branch-name>
+
+
+
+7. Create a new branch and check it out 
+git checkout -b <branch-name>
+
+
+
+8. switch branch
+git checkout <branch-name>
+
+
+
+9. check current branch and list all branch
+git branch -a
+
+
+10. check log, commit id
+git log
+
+
+
+11. modify existing, unpushed commit messages
+- modify latest unpushed commit:
+git commit --amend -m "your new message"
+
+- modify any unpushed commit:
+git commit --amend -c <commit ID>
+=> you will have to use vim to edit your message by press "i" (insert mode) and then type your message and then "ESC:wq" (write and quit) to confirm
+
+
+
+12. modify existing, pushed commit messages
+- modify latest pushed commit:
+git commit --amend -m "Your new message here"
+git rebase -i HEAD^
+"ESC:wq"
+git push origin <branch-name> -f (force push)
+
+- modify any pushed commit:
+git rebase -i HEAD~n (command to display a list of the last n commits in your default text editor) Example: git rebase -i HEAD~3
+=> use vim to replace "pick" with "reword" before each commit message that needs to be changed,
+"ESC:wq"
+=> continue to use vim to type the new commit message
+"ESC:wq"
+git push origin <branch-name> -f (force push)
+
+
+
+13. revert unadded files and folders
+git checkout -- <file-url> (revert file)
+git checkout -- <folder-url> (revert folder)
+git checkout -- .  (revert all)
+
+
+
+14. revert pushed commit
+git revert <commit Id>
+"ESC:wq"
+git push origin <branch-name>
+
+
+
+15. revert to a commit
+- using push force (this way will remove all the commits downward to the commit you want)
+git reset --hard <commit Id>
+git push --force origin <branch-name>
+
+- without push force (this way will add a new commit on top)
+git revert --no-commit <commit Id>..HEAD (Ex: git revert --no-commit 0766c053..HEAD)
+git commit -m "revert"
+git push origin <branch-name>
+

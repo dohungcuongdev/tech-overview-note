@@ -1,0 +1,7 @@
+In Factory pattern,
+we create object without exposing the creation logic to the client and 
+refer to newly created object using a common interface.*/
+
+Use case:
+ - You need an external object, but you don’t know exactly which one.
+ - Construction is very complex and you need to reuse it.

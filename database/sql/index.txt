@@ -1,0 +1,16 @@
+Indexes create a separate file where the records are sorted in a binary tree.
+The lookup for records then becomes a binary search operation, as opposed to a full table scan,
+making it extremely faster to lookup records by an indexed field.
+
+MySQL doesn't have filtered indexes
+CREATE INDEX fake_table_index ON table_name (inactive, column_name);
+
+MSSQL support filtered indexes
+CREATE NONCLUSTERED INDEX FIBillOfMaterialsWithEndDate  
+    ON Production.BillOfMaterials (ComponentID, StartDate)  
+    WHERE EndDate IS NOT NULL ;  
+GO 
+
+
+
+

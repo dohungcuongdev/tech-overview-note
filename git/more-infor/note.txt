@@ -1,4 +1,4 @@
-
+git flow:
 Create new branch
 Switch to the new branch created
 Work on this branch
@@ -12,13 +12,6 @@ How to push under another username:
 git config --local credential.helper ""
 git push origin master
 Enter username and password
-
-
-New repo and push
-https://help.github.com/en/articles/adding-an-existing-project-to-github-using-the-command-line
-
-
-https://stackoverflow.com/questions/39399804/updates-were-rejected-because-the-tip-of-your-current-branch-is-behind/39414252
 
 
 Revert all
@@ -52,8 +45,22 @@ Then use git reset –hard <commit-hash> to set the current branch HEAD to the 
 
 (‘git log’ to get the commit) 
 git reset --hard cedc856
-git push --force origin master 
+git push --force origin master
 When we push the change to origin when need to use force
+
+
+rename a commit
+git commit --amend
+which will bring up your editor, or
+
+git commit --amend -m "Your new message here"
+which will allow you to specify the new message on the command line. Also possible, but more useful if you have other commits to reword
+
+git rebase -i HEAD^
+# then replace 'pick' with 'r' or 'reword' and save, editor should pop up again to edit the msg
+Because this commit has a new SHA1 due to the change of the contents, you will need to force push the new reference. The force is needed because it tells git to forget about the previous commit. It's a safety measure.
+
+git push origin your-branch-name -f
 
 
 Reference

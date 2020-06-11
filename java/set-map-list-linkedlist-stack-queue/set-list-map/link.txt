@@ -1,0 +1,7 @@
+
+
+https://www.quora.com/In-Java-how-will-you-decide-when-to-use-a-List-Set-or-a-Map-collection
+
+https://stackoverflow.com/questions/322715/when-to-use-linkedlist-over-arraylist-in-java
+
+https://stackoverflow.com/questions/23246059/java-vector-thread-safety

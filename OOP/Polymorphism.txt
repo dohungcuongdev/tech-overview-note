@@ -1,0 +1,5 @@
+Java Polymorphism
+Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance.
+Polymorphism allows us to perform a single action in different ways.
+
+Example: Overide/Overload, People people = new Teacher(), People people = new Student()

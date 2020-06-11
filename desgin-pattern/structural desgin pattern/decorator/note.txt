@@ -1,0 +1,13 @@
+The decorator pattern is a design pattern that allows behavior to be added to an individual object, dynamically, 
+without affecting the behavior of other objects from the same class
+
+Explain:
+- For example: build a coffie app, 3 types of drink (milk tea, black coffie, matcha), 2 types of topping (chocolate topping, matcha topping)
+- if we want cchocolate topping, matcha topping can be added into milk tea, black coffie, matcha, we may need to write function addChocolateTopping, addMatchaTopping into milkTea, blackCoffie, Matcha and this affects the behavior these classes
+- one of the solution is to write 6 classes: milkTeaWithChocolateTopping, matchaWitChocolateTopping, milkTeaWitMatchaTopping, matchaWitMatchaTopping, ...; but this way seems to be inconvenient if in the future we have more topping such as cheeseTopping, cocacolaTopping; we have to create a lot of classess
+- that why we should use decorator pattern
+
+
+Use case: 
+- drink, coffie, tea and topping (milk tea, black coffie, matcha, chocolate topping, matcha topping,...)
+- Text x Format  (Bold, Italic, Underline, Strike-through, Color…).

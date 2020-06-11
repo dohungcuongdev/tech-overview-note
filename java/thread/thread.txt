@@ -1,0 +1,24 @@
+Threads exist in several states:
+New − A new thread begins its life cycle in the new state. It remains in this state until the program starts the thread. When we create an instance of Thread class, a thread is in a new state.
+Runnable − After a newly born thread is started, the thread becomes runnable. A thread in this state is considered to be executing its task.
+Waiting − Sometimes, a thread transitions to the waiting state while the thread waits for another thread to perform a task. A thread transitions back to the runnable state only when another thread signals the waiting thread to continue executing.
+Timed Waiting − A runnable thread can enter the timed waiting state for a specified interval of time. A thread in this state transitions back to the runnable state when that time interval expires or when the event it is waiting for occurs.
+Terminated (Dead) − A runnable thread enters the terminated state when it completes its task or otherwise terminates.
+
+The Thread class defines several methods that help manage threads:
+Method							Meaning	
+start							Starts the thread in a separate path of execution, then invokes the run() method on this Thread object.
+run								If this Thread object was instantiated using a separate Runnable target, the run() method is invoked on that Runnable object.
+sleep							Suspend a thread for a period of time
+currentThread                   Returns a reference to the currently running thread, which is the thread that invokes this method
+isAlive							Determine if a thread is still running
+join							The current thread invokes this method on a second thread, causing the current thread to block until the second thread terminates or the specified number of milliseconds passes.
+interrupt           			Interrupts this thread, causing it to continue execution if it was blocked for any reason.
+yield							Causes the currently running thread to yield to any other threads of the same priority that are waiting to be scheduled.
+setName/getName					Obtain thread’s name
+setPriority/getPriority			Obtain thread’s priority
+setDaemon/isDaemon             	A parameter of true denotes this Thread as a daemon thread.        
+holdsLock                       Returns true if the current thread holds the lock on the given Object
+dumpStack                       Prints the stack trace for the currently running thread, which is useful when debugging a multithreaded application.
+
+create a thread by implement Runnable Interface or Extend Java Thread

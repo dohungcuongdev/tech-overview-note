@@ -1,0 +1,6 @@
+Set vs List vs Map: all of them are in interface of java collection
+
+Main Different:
+List: allows duplicate
+Set:  duplicate values are not allowed
+Map:  key and a value pair, it may contain duplicate values but keys are always unique.

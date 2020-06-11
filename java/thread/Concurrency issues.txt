@@ -1,0 +1,8 @@
+Concurrency issues:
+
+Threads have their own call stack, but can also access shared data. Therefore you have two basic problems, visibility and access problems.
+A visibility problem occurs if thread A reads shared data which is later changed by thread B and thread A is unaware of this change.
+An access problem can occur if several thread access and change the same shared data at the same time.
+Visibility and access problem can lead to:
+Liveness failure: The program does not react anymore due to problems in the concurrent access of data, e.g. deadlocks.
+Safety failure: The program creates incorrect data.
