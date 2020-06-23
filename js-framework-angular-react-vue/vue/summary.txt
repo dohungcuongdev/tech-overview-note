@@ -1,0 +1,12 @@
+1/ component:
+- prop
+- slot
+2/ filters
+3/ router
+4/ mixins
+5/ Vuex
+Templates
+Reactivity
+Components
+Transitions
+Routing

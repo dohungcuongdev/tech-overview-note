@@ -1,10 +1,1 @@
-Transaction problem in Mongodb
-
-https://stackoverflow.com/questions/51461952/mongodb-v4-0-transaction-mongoerror-transaction-numbers-are-only-allowed-on-a
-sudo chown -R $USER /usr/local/lib/node_modules
-(E.g: sudo chown -R mulodo /usr/local/lib/node_modules)
-sudo npm install --unsafe-perm onoff -g
-
-https://stackoverflow.com/questions/55878421/how-to-solve-this-transaction-error-in-mlab-mongoerror-transaction-numbers-ar
-
-https://stackoverflow.com/questions/6635718/how-to-work-around-the-lack-of-transactions-in-mongodb
+https://github.com/dohungcuongdev/learning-nosql-mongo

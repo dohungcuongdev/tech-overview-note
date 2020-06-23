@@ -1,1 +1,7 @@
+AJAX: Asynchronous JavaScript And XML
+
+ORM: Object-Relational Mapping
+OOP: Object Oriented Programming
+AOP: Aspect Oriented Programming
+CI-CD: Continuous integration and continuous delivery
 CLI: Command Line Interface

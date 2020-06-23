@@ -1,0 +1,27 @@
+DDD (Domain Driven Design)
+
+Với cách làm thông thường khi xây dựng một hệ thống là chúng ta có có 1 bản thiết kế có thể là psd hay picture hay là một file spec, 
+sau khi phân tích từ file design chúng ta xác định mình cần làm gì và bắt đầu code.
+Tuy nhiên, với mô hình DDD, chúng ta phải đi từ domain, hay nói cách khác là đi từ tổng quát nghiệp vụ của project sau đó mới đến phần design
+
+User Interface Layer: giao diện
+Application Layer: Tầng này được thiết kế khá mỏng với ít logic xử lý chỉ để làm nhiệm vụ coordinate các Activity của Application và không chứa Business Logic, nó không chứa state của các Business Object mà chỉ chứa state của Application Task Progress
+Domain Layer: Đây là trái tim của ứng dụng, các state của Business Object đều nằm ở đây, các nghiệp vụ sẽ được mô tả tại đây
+Infrastructure Layer: (cơ sở vật chất) Đóng vai trò cung cấp thư viện cho các tầng khác. Nó cung cấp cơ chế giao tiếp ( communication ) giữa các Layer với nhau, cũng như cung cấp các chức năng khác như lưu trữ ( persistence ) các Business Object của tầng Domain.
+
+Xây dựng kiến thức domain
+Để xây dựng kiến thức về domain bạn phải là người trực tiếp ở trong lĩnh vực đó, nhưng nếu thế thì bạn lại không phải là coder nữa. Vấn đề là bạn cần ngồi xuống bàn bạc với những người liên quan có kinh nghiệm và kiến thức trong lĩnh vực đó.
+
+Spring boot App:
+User Interface Layer: thymleaf or JSP or front end App
+Application Layer: Application.java, Controller or ResrController, ExceptionHandler, Application Service
+Domain Layer: Enitty, Value Object, Aggregate, Repository Interfaces, Domain Service, Factory
+Infrastructure Layer: helper, const, Repository Implementation
+
+
+Entity: Object with ID
+Value Object: 1 Object nhưng không cần định danh. Đặc tính của object là Immutable, tạo ra rồi thì không thể thay đổi được. Một value object sẽ không có ý nghĩa gì nếu không được gắn vào một entity nào đó. 
+Aggregate: một Aggregate có thể có nhiều entity, nếu bạn xóa Aggregate đi thì kéo entity của nó cũng bị bị xóa bỏ.
+
+Ubiquitous Language: 
+Ví dụ về nghiệp vụ chuyển tiền thì domain expert sử dụng từ remittance, thì anh dev cũng phải sử dụng từ khóa này phản ánh trong source code của mình. Remittance trở thành 1 Ubiquitous language. Tóm lại khi code, developer phải thể hiện Ubiquitous language trong source code của mình để domain expert khi đọc có thể hình dung ra được.

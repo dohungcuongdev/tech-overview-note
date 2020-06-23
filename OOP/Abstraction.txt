@@ -10,8 +10,9 @@ Abstract class: is a restricted class that cannot be used to create objects (to 
 Abstract method: can only be used in an abstract class, and it does not have a body. The body is provided by the subclass (inherited from).
 
 An abstract class can have both abstract and regular methods
-interfaces have only abstract methods unless they are delcared as default interfaces (java8)
 
+An interface is a reference type in Java. It is similar to class. It is a collection of abstract methods. A class implements an interface, thereby inheriting the abstract methods of the interface. Along with abstract methods, an interface may also contain constants, default methods, static methods, and nested types.
+interfaces have only abstract methods unless they are delcared as default interfaces (java8)
 
 Vietnamese
 Tính trừu tượng trong Java là tính chất không thể hiện cụ thể mà chỉ nêu tên vấn đề. 

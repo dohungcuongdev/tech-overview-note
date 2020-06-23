@@ -1,0 +1,22 @@
+Webpack is JavaScript module bundler. 
+ 
+Webpack takes modules with dependencies and generates static assets representing those modules. 
+Webpack's key features are rooted in extensibility and enabling developers to use best-practices in Web Architecture and Web Performance.
+
+Allows to split your codebase into multiple bundles, which can be loaded on demand. Support loaders to preprocess files, i.e. javascript, css, html, json, jade, coffeescript, less...
+
+Features:
+Bundles ES6/ES2015 modules (since webpack 2), commonjs and AMD modules(even combined).
+Can create a single bundle or a bunch of chunks loaded on demand, to reduce initial loading time.
+Dependencies are resolved while compiling, this makes the runtime very small.
+Loader can preprocess files while compiling, i.e. coffeescript to javascript.
+
+
+Webpack là công cụ giúp gói gọn toàn bộ file js, css(bao gồm cả scss,sass,..). 
+Việc gói gọn không phải là lộn xộn hết cả lên mà nó được gói theo cấu trúc project,
+từ phần module này sang phần kia. 
+Ngoài ra webpack còn rất nhiều chức năng hữu dụng nữa, 
+vd như optimize hay  tuỳ chọn chạy trên môi trường khác nhau(dev hoặc production), watch file,… 
+Mình đã xem qua webpack sử dụng plugin nén 1 file js từ 6mb xuống còn 76 kb. : )). 
+Với sự contribute của một cộng đồng dev khổng lồ nên webpack là tool hỗ trợ rất tốt cho các dev js, 
+việc sử dụng webpack để dùng cho các project lớn là đều hết sức tuyệt vời.

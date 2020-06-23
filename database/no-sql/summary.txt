@@ -1,0 +1,14 @@
+NoSQL is a non-relational DMS
+Flexible schema: NoSQL does not require a fixed schema like SQL
+NoSQL is easy to scale. 
+NoSQL database is used for distributed data stores with humongous data storage needs. 
+NoSQL is used for Big data and real-time web apps
+avoid joins in NoSQL
+
+NOte: Preferred SQL, when you want to use joins and execute complex queries
+
+key different between SQL and NoSQL
+SQL databases are table based databases whereas NoSQL databases can be document based, key-value pairs, graph databases.
+SQL databases are vertically scalable while NoSQL databases are horizontally scalable.
+SQL databases have a predefined schema whereas NoSQL databases use dynamic schema for unstructured data.
+SQL requires specialized DB hardware for better performance while NoSQL uses commodity hardware.

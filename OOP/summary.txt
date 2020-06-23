@@ -7,7 +7,7 @@ OOP makes it possible to create full reusable applications with less code and sh
 
 Classes and objects are the two main aspects of object-oriented programming
 
-Encapsulation: 
-Inheritance:
-Polymorphism:
-Abstraction:
+Encapsulation: make sure that "sensitive" data is hidden from users
+Inheritance: one class is allow to inherit the features(fields and methods) of another class
+Polymorphism: allows to perform a single action in different ways (Ex: People people = new Student(), Override: same method name, same params/Overload: same method name, different params)
+Abstraction: hiding unnecessary details (Ex: how a methods work internally) from the user, just show necessary feature (Ex: methods) to user

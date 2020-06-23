@@ -1,0 +1,7 @@
+- Cookie: key-value store that stores values as string. Only up to 4kb data can be stored. Cookie data are to be used in the server
+- LocalStarage: key-value store that stores values as string. Up to 10MB of data
+- Session Storage: same as LocalStarage but sessionStorage is unique per tab. If you close the tab the sessionStorage gets deleted, localStorage does not.
+- IndexedDB: support storing a large amount of structured data in the client-side
+- WebSQL (deprecated) -> Web SQL Database: support transaction; query, execute like server side database
+
+Note: May have Difference in browser support

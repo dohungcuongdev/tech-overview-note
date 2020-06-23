@@ -1,0 +1,9 @@
+The CI/CD pipeline is one of the best practices for devops teams to implement, for delivering code changes more frequently and reliably
+
+The technical goal of CI is to establish a consistent and automated way to build, package, and test applications. 
+With consistency in the integration process in place, teams are more likely to commit code changes more frequently, 
+which leads to better collaboration and software quality.
+
+Continuous delivery picks up where continuous integration ends. CD automates the delivery of applications to selected infrastructure environments. 
+Most teams work with multiple environments other than the production, such as development and testing environments, 
+and CD ensures there is an automated way to push code changes to them.

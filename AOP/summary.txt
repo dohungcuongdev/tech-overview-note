@@ -1,0 +1,2 @@
+AOP (Aspect Oriented Programming) is a programming paradigm that aims to increase modularity by allowing the separation of cross-cutting concerns. 
+It does so by adding additional behavior to existing code (an advice) without modifying the code itself

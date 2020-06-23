@@ -1,0 +1,6 @@
+Monolithic: traditional application architecture
+Monolith means composed all in one piece. 
+The Monolithic application describes a single-tiered software application in which different components combined into a single program from a single platform. 
+
+Microservices is an architectural style where its application is structured as a collection of loosely coupled services 
+and each service implements its own business capabilities

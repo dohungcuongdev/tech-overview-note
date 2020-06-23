@@ -1,6 +1,13 @@
 Aspect Oriented Programming
 
-AOP is a way to modify existing classes in a code base to embellish them or change their behavior based on rules defined separately. This modification can be done before the classes are put into a jar/war, or can happen dynamically while the code is being loaded.
+AOP is a way to modify existing classes in a code base to embellish them or change their behavior based on rules defined separately. 
+This modification can be done before the classes are put into a jar/war, or can happen dynamically while the code is being loaded.
+
+AOP (Aspect Oriented Programming) is a programming paradigm that aims to increase modularity by allowing the separation of cross-cutting concerns. 
+It does so by adding additional behavior to existing code (an advice) without modifying the code itself, 
+instead separately specifying which code is modified via a "pointcut" specification, such as "log all function calls when the function's name begins with 'set'". 
+This allows behaviors that are not central to the business logic (such as logging) to be added to a program without cluttering the code, 
+core to the functionality. AOP forms a basis for aspect-oriented software development.
 
 Aspect Oriented Programming (AOP) là kiểu lập trình cho phép phân tách chương trình thành các module tách biệt, không phụ thuộc nhau. 
 Chương trình kết hợp các module lại khi hoạt động, nhằm thực hiện các chức năng. 

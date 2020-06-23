@@ -1,0 +1,2 @@
+CI: (continuous integration) help you set up, schedule auto build, package and test applications
+CD: (Continuous delivery) after CI ended, CD auto deliver app to any environment

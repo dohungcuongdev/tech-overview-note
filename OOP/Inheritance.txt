@@ -1,4 +1,5 @@
 Java Inheritance (Subclass and Superclass)
+It is the mechanism in java by which one class is allow to inherit the features(fields and methods) of another class
 In Java, it is possible to inherit attributes and methods from one class to another. We group the "inheritance concept" into two categories:
 - subclass (child) - the class that inherits from another class
 - superclass (parent) - the class being inherited from

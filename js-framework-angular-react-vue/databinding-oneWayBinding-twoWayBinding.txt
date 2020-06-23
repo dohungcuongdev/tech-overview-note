@@ -1,0 +1,15 @@
+
+Binding generally refers to a mapping of one thing to another
+
+Data binding is a technique to link your data to your view layer. 
+By binding a variable you are telling the framework (angular in this case) to watch it for changes. 
+If changes are detected, the framework takes care of updating the view accordingly.
+
+React: one-way data binding
+One-way data binding is a situation where information flows in only one direction, typically from a data source to the control.
+
+
+Angular, Vuejs: two-way data binding (v-model, ng-model)
+With two-way data binding, the framework (angular) is not only watching your variables for changes. 
+It also keeps track of changes that are made by the user (for example with input-elements) and updates the variables accordingly.
+That way, the variables in the code always represent what is displayed in the view.

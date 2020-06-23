@@ -1,0 +1,31 @@
+1/ Dom
+HTML DOM (Document Object Model)
+When a web page is loaded, the browser creates a Document Object Model of the page.
+The HTML DOM model is constructed as a tree of Objects
+
+With the object model, JavaScript gets all the power it needs to create dynamic HTML:
+JavaScript can change all the HTML elements in the page
+JavaScript can change all the HTML attributes in the page
+JavaScript can change all the CSS styles in the page
+JavaScript can remove existing HTML elements and attributes
+JavaScript can add new HTML elements and attributes
+JavaScript can react to all existing HTML events in the page
+JavaScript can create new HTML events in the page
+
+
+2/
+Virtual Dom used by React, Vue
+React, Vue uses this intermediate representation (which they call “Virtual DOM”) so that they can diff changes between different states, 
+and make changes to a minimal amount of browser DOM nodes.
+
+A virtual DOM object is a representation of a DOM object, like a lightweight copy.
+Manipulating the DOM is slow. Manipulating the virtual DOM is much faster
+
+It’s a step that happens between the render function being called and the displaying of elements on the screen.
+
+How Virtual Dom work?
+Component render, Create a Virtual Dom
+if you make any changes in component, the Virtual Dom get updated. At any state, react keep 2 different versions of Virtual Dom: updated version and pre-update version (snapshot)
+Compare updated version with the snapshot using diffing.
+Update only different nodes in real DOM.
+Assign updated version Virtual Dom as snapshot for the next update.

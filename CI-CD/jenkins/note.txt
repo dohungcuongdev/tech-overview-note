@@ -1,0 +1,5 @@
+As an extensible automation server, Jenkins can be used as a simple CI server or turned into the continuous delivery hub for any project.
+
+support auto build and deploy on different environments
+setup schedule for build and deploy
+auto send email to user to check build and deploy status, build log...
