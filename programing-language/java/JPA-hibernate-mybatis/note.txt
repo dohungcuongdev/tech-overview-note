@@ -1,0 +1,3 @@
+JPA is interface
+Hibernate is implementation of JPA, Hibernate is ORM
+Mybatis is not implementation of JPA, also is not ORM

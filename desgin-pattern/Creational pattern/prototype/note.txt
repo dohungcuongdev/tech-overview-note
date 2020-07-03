@@ -4,6 +4,11 @@ Nó có nhiệm vụ khởi tạo một đối tượng bằng cách clone một
 
 Prototype Pattern được dùng khi việc tạo một object tốn nhiều chi phí và thời gian trong khi bạn đã có một object tương tự tồn tại.
 
+ví dụ 1 đối tượng đã tồn tại rồi, nếu user muốn tạo 1 đối tượng khác ko cùng reference mà value giống hệt với đối tượng đó
+thì nếu ko sử dụng Prototype pattern, ta phải tạo new object từ class của đối tượng đã tồn tại, rồi set tất cả properties bên trong giống hệt nhau,
+như vậy rất mất thời gian và tốn nhiều chi phí
+-> Prototype Pattern sẽ giúp ta tạo 1 object mới bằng phương thức clone
+
 clone vs new 
 clone: create new object with same properties value of the current object
 new: just new object

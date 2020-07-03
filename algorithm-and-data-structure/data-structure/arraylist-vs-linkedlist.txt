@@ -1,0 +1,11 @@
+1/ Performance:
+ArrayList is faster than LinkedList if I randomly access its elements. I think random access means "give me the nth element". Why ArrayList is faster?
+ArrayList has direct references to every element in the list, so it can get the n-th element in constant time. LinkedList has to traverse the list from the beginning to get to the n-th element.
+
+LinkedList is faster than ArrayList in case of insetion and deletion
+In an ArrayList, you get to the element in O(1), but actually removing or inserting something makes it O(n) because all the following elements need to be changed.
+In a LinkedList, it takes O(n) to actually get to the desired element, because we have to start at the very beginning until we reach the desired index. Actually removing or inserting is constant, because we only have to change 1 reference for remove() and 2 references for insert().
+
+2/ Memory:
+LinkedList uses a wrapper object, Entry, which is a static nested class for storing data and two nodes next and previous while ArrayList just stores data in Array.
+So memory requirement seems less in the case of ArrayList

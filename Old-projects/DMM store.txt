@@ -1,0 +1,40 @@
+game platform of DMM company
+recently DMM have a game platform that allows the third party game developers to upload the games
+base on that platform, the gamers can pay their money to buy the games, DLC or any items, weapon, cloth, skin or costume of the games
+Of course, DMM and the third party game developers will share the income
+The game platform is similar to some popular platform on the market such as: steam or garena
+Up to now, this game platform only support japanese IP address; that means we need to use japanese IP address to access that platform and play the game
+Another option is that we can fake our IP address using VPN, using some tool such as hotspot shield; bla bla bla; but it will slow down the Internet connection
+Therefore, Dmm decided to build a new platform, a global game platform that allows people all over the world to play the game
+This new platform is built base on mircoservices architecture, and my project DMM store is a single service works along side with plenty of services in this architecture
+Actually, my project is just a data service, where we provide some data to the platform
+We have to build a lot of APIs related to:
+popular products
+new arrival
+online/local products
+catalog
+ads
+review
+DLC
+campaign
+article
+spotlight
+discovery
+
+for example API get popular products: 
+client input site, langCode, device, accessCountry, accessState, limit, page
+-> check and validate input 
+-> check if site, langCode, device, accessCountry, accessState are availabe in db
+-> use the input with sort=popular to call other services
+-> connect to another service to get products: List<Product> (id, ageGroup, supportedDevice, gameType, osType, systemInformation, supportedLanguage, price, isDiscount ...)
+-> with the list of product ids call another service to get more infor (blackList, review, ratingInformation, developers, publishers, ... )
+-> continue to call another service to get list of DLCs (name, price, mediaGallery, releaseBegin, releaseEnd, ...)
+-> combine the data into a list of popular products
+-> reponse to client
+
+for example API get review: 
+input product id, limit, page -> List<Reivew> (output evaluation, reaction, like, dislike, comment, userId, createdAt, updatedAt, List<Reply> (comment, userId, createdAt, updatedAt)....)
+
+
+We have to follow (DDD) Domain design driven approach and TDD (Test-driven development) to build the restful web services
+The technologies we use are: Spring boot, docker, kotlin, intelIj

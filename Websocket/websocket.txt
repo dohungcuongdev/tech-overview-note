@@ -1,0 +1,25 @@
+HTTP:
+ client gửi request đến server, server xử lí và response
+rồi muốn tiếp tục client lại gửi request đến server, server xử lí và response
+client luôn luôn make request và server chỉ phản ứng lại khi nhận đc request
+server sẽ không response nếu không nhận đc request từ phía client
+
+cái model request/response này vẫn hoạt động tốt cho tới nay, giải quyết đc rất nhiều bài toán trong lập trình web, 
+tuy nhiên trong 1 số trường hợp mình cần tương tác real-time từ phía server, client cần information, cần data mặc dù ko request nó
+đó là lí do websocket ra đời
+
+WebSoket là 1 protocol tương tự như HTTP, websocket cung cấp full-duplex communication channels thông qua TCP connection. 
+full-duplex communication ở đâu có thể hiểu là giao tiếp 2 chiều giữa client và server. còn HTTP thì chỉ cung cấp Half Duplex communication
+như em nói ở trên đó thì server sẽ ko tự động gửi response cho client nếu ko nhận đc request.
+
+webSocket là một giao thức được thiết kế để truyền dữ liệu bằng cách sử dụng port 80 và port 443 
+và nó là một phần của HTML5. Do đó, webSockets tương thích với giao thức với HTTP và có thể hoạt động trên các port web tiêu chuẩn, 
+nên không có rắc rối về việc mở port cho các ứng dụng, lo lắng về việc bị chặn bởi các tường lửa hay proxy server
+
+Giao thức WebSocket cho phép tương tác giữa trình duyệt web (hoặc app khác) và webserver với overhead thấp hơn 
+so với HTTP, tạo điều kiện truyền dữ liệu real-time từ client đến server và server đến client.
+
+cái giao thức websocket protocol nó xử dụng frames. 
+Frames are a header + application data. 
+The frame header chỉ chứa 1 số thông tin về cái frame và application data. 
+application data là data mình muốn send trong frame body

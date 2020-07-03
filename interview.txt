@@ -1,0 +1,67 @@
+My name is Cuong
+I am 25 years old
+I live in Ho Chi Minh city, district 2
+I have graduated HCMC International university
+I have worked at EdunetJSC for about 6 months, DXC technology coperation for about 2 years and mulodo company for about 1 year.
+The tittle when I was working in my old compapny is Sofeware engineer.
+Most of the time, I work with java and spring framework to build server side web app or Restful webservice with springboot 
+I also know a little bit about frontend development, some basic knowledge about html, css, javascript. 
+I used to work with some popular js framework such as: Angular, AunglarJS, ReactJs and vuejs but not too much
+because I mainly focus on backend development
+
+About my hobby, I like playing game and swimming and boxing
+In my free time, I may spend time on researching new technology, learning new thing about software development 
+Watch video on youtube
+
+
+Daily working:
+most of the time is coding
+sometime, test my code, write unit test or manually test based on project's requirement
+join training program, learn and share knowledge about new technology, pattern or architecture in order to start a new project
+use jira to update working progress, report to project managaer
+meeting,working with team, discussing about the problem and solution
+when there is no tasks remaining or the tasks are less than usual, we can relax or go arround and find something to eat, enjoy happy hour
+when a lot of tasks haven't been finished yet, and I feel that the deadline is coming and I cannot finish it on time, I have to work overtime to complete my task as expected.
+
+Strong
+Ability to learn from mistakes. When I make a mistake, I usually note it down so that I do not forget it and will never do it again.
+Ability to mutlitask and work Overtime. 
+Logical thinking
+
+
+weaknesses 
+I am not comfortable with taking risks. I don't usally try to do something risky. That 's why I decide to be a developer instead of startup, starting my own company for example
+Spend too much effort to help someone but forgot that my tasks haven't done yet
+
+
+I would like to learn more about the benefit when I joined your company
+Would you mind sharing that to me?
+
+What are your working hours?
+What time do you start and end work at?
+Is it possible to work With a Flexible Schedule?
+
+About salary review, how many times per year we could be reviewed to get higher salary and promotion?
+
+technical
+IOC
+DI
+AOP
+OOP
+Java core, java 8: stream, collection, optional, default interface
+SOLID
+spring bean lifecycle
+react vue angular lifecycle
+vuex redux
+gradle maven
+agile scrum
+sql, index, union, join, procedure, transaction, commit, rollback, insert ON DUPLICATE KEY UPDATE
+desgin pattern
+thymleaf, jsp
+MVC
+SPA, SSR
+mircoservice
+docker
+AWS
+https://stackoverflow.com/questions/243385/beanfactory-vs-applicationcontext
+https://stackoverflow.com/questions/44172261/how-spring-boot-application-works-internally

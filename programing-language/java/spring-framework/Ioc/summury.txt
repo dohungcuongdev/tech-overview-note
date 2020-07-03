@@ -1,0 +1,78 @@
+The Spring IoC container
+It is the heart of the Spring Framework. 
+The IoC container receives metadata from either an XML file, Java annotations, or Java code. 
+
+The responsibilities of IoC container are:
+- Instantiating the bean
+- Wiring the beans together
+- Configuring the beans
+- Managing the bean’s entire life-cycle
+
+
+Inversion of Control is a principle in software engineering by which the control of objects 
+or portions of a program is transferred to a container or framework. It's most often used in the context of object-oriented programming.
+(IOC is 1 principle trong software engineering: việc control objects sẽ đc chuyển đến container hoặc là framework)
+
+Dependency injection is a pattern through which to implement IoC
+Dependency Injection is passing dependency to other objects or framework( dependency injector).
+Dependency injection makes testing easier. The injection can be done through constructor, setter 
+Dependency Injection nghĩa là các đối tượng (object) sẽ không cần quan tâm đến việc khởi tạo hay get các phụ thuộc (dependency) của mình, 
+thay vào đó, sẽ có một bên thứ 3 đứng ra, tiêm (inject) các dependency này vào đối tượng.
+in Spring, use xml to configure injection or annotation such as Autowired
+
+Dependency injection Example:
+
+// suppose we have Action1 implements Action
+public Action1 implements Action {
+	public void perform() {
+        System.out.println("Action1 performed")
+    }
+}
+
+public Action2 implements Action {
+	public void perform() {
+        System.out.println("Action2 performed")
+    }
+}
+
+// without dependency injection
+public class A implements B {
+    private Action action;
+
+    public A() {
+        this.action = new Action1(); // this is not good if we want to change Action1 into Action2
+    }
+
+    public void performAction() {
+        action.perform();
+    }
+}
+
+// use dependency injection
+public class A implements B {
+    private Action action;
+
+    public A(Action action) {
+        this.action = action; // use dependency injection (constructor)
+    }
+
+    public void performAction() {
+        action.perform();
+    }
+}
+
+// use dependency injection with spring annotation
+public class A implements B {
+
+	@Autowired //The @Autowired annotation tells Spring where an injection needs to occur
+    private Action action;
+	
+    public void performAction() {
+        action.perform();
+    }
+}
+// The @Autowired annotation allows you to skip configurations elsewhere of what to inject and just does it for you
+use with component-scan, @Component, @Service
+
+@Bean tells Spring 'here is an instance of this class, please keep hold of it and give it back to me when I ask'.
+@Autowired says 'please give me an instance of this class, for example, one that I created with an @Bean annotation earlier'.

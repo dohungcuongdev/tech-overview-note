@@ -5,3 +5,9 @@ refer to newly created object using a common interface.*/
 Use case:
  - You need an external object, but you don’t know exactly which one.
  - Construction is very complex and you need to reuse it.
+ 
+ 
+ -> giúp user tạo object mà ko cần phải biết cái logic tạo object đó ntn
+ sử dụng trong trường hợp:
+ + constructor để tạo object đó pquá phức tạp, việc tạo object đó quá khó khăn
+ + hệ thống quá lớn dẫn đến user ko biết phải tạo object từ class nào để làm việc

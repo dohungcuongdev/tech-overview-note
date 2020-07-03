@@ -1,0 +1,95 @@
+Spring MVC flow in deep
+summury flow: 
+1. start tomcat
+2. register dispatcher servlet in web.xml
+3.1 dispatcher servlet load WebApplicationContext from dispatcher-servlet.xml
+3.2 WebApplicationContext includes instantiation/wiring configuration; Special beans in WebApplicationContext: HandlerMapping, ViewResolver, HandlerExceptionResolver, LocaleResolver, MultipartResolver ...
+4. tomcat server startup successfully
+5. any request -> HandlerMapping -> automatically looks for @RequestMapping annotations on all @Controller beans
+6. 
+
+1. start tomcat server
+
+2. read code in implementation class of WebApplicationInitializer to register dispatcher servlets, 
+or else can read web.xml to register instead of WebApplicationInitializer
+
+public class MyWebAppInitializer implements WebApplicationInitializer {
+
+    @Override
+    public void onStartup(ServletContext container) {
+      XmlWebApplicationContext appContext = new XmlWebApplicationContext();
+      appContext.setConfigLocation("/WEB-INF/dispatcher-servlet.xml");
+      ServletRegistration.Dynamic dispatcher =
+        container.addServlet("dispatcher", new DispatcherServlet(appContext));
+      dispatcher.setLoadOnStartup(1);
+      dispatcher.addMapping("/");
+    }
+}
+
+equivalent to web.xml:
+ 
+<web-app>
+ <servlet>
+   <servlet-name>dispatcher</servlet-name>
+   <servlet-class>
+     org.springframework.web.servlet.DispatcherServlet
+   </servlet-class>
+   <init-param>
+     <param-name>contextConfigLocation</param-name>
+     <param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
+   </init-param>
+   <load-on-startup>1</load-on-startup>
+ </servlet>
+
+ <servlet-mapping>
+   <servlet-name>dispatcher</servlet-name>
+   <url-pattern>/</url-pattern>
+ </servlet-mapping>
+</web-app>
+
+3. run DispatcherServlet class, each DispatcherServlet has its own WebApplicationContext -> XMLWebApplicationContext (AnnotationConfigApplicationContext in case of springboot)
+XMLWebApplicationContext metadata is loaded from /WEB-INF/dispatcher-servlet.xml as above example. we declare Bean instantiation/wiring in dispatcher-servlet.xml for ApplicationContext
+
+dispatcher-servlet.xml:
+
+<context:component-scan base-package="controller" />
+
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<property name="prefix">
+		<value>/WEB-INF/jsp/</value>
+	</property>
+	<property name="suffix">
+		<value>.jsp</value>
+	</property>
+</bean>
+
+<mvc:interceptors>
+	<bean class="intercepter.MyHandlerInterceptor"></bean>
+</mvc:interceptors>
+
+Special bean types in the WebApplicationContext:
+HandlerMapping: Maps incoming requests to handlers and a list of pre- and post-processors 
+HandlerAdapter: Helps the DispatcherServlet to invoke a handler mapped to a request regardless of the handler is actually invoked. For example, invoking an annotated controller requires resolving various annotations. Thus the main purpose of a HandlerAdapter is to shield the DispatcherServlet from such details.
+HandlerExceptionResolver: Maps exceptions to views. Example: error page
+ViewResolver: maps view names to actual views
+LocaleResolver: offer internationalized views
+ThemeResolver: offer personalized layouts
+MultipartResolver: 	Parses multi-part requests for example to support processing file uploads from HTML forms.
+FlashMapManager: Stores and retrieves the "input" and the "output" FlashMap that can be used to pass attributes from one request to another, usually across a redirect.
+
+Important beans: HandlerMapping, HandlerExceptionResolver, ViewResolver
+
+4. HandlerMapping: 
+In previous versions of Spring, users were required to define one or more HandlerMapping beans in the web application context to map incoming web requests to appropriate handlers.
+With the introduction of annotated controllers, you generally don't need to do that because the RequestMappingHandlerMapping automatically looks for @RequestMapping annotations on all @Controller beans
+
+Spring's handler mapping mechanism includes handler interceptors, which are useful when you want to apply specific functionality to certain requests.
+Interceptors located in the handler mapping must implement HandlerInterceptor and override 3 methods:
+- preHandle: is called before the actual handler is executed
+- postHandle:  is called after the handler is executed
+- afterCompletion:  is called after the complete request has finished
+
+For example: request to display homePage.jsp: client's request -> preHandle -> method with @RequestMapping in Controller -> postHandle -> homePage.jsp -> afterCompletion -> render homePage to client
+
+5. ViewResolver:
+

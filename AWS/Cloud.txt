@@ -1,0 +1,10 @@
+Basically all the resources your program needs are held "somewhere" on the internet. 
+You interact with them via a defined service contract; SOAP, REST, POX or whatever and what happens after that is up to the service provider. 
+You don't care about how your information is stored or how the service is provided, just that it is.
+
+If, for example, you wanted to store files, you may choose to use Amazon's S3 cloud system. 
+You connect to the service and upload your files; you don't know or care where the files are stored, only the location of the entry point to that service.
+
+If you have an application then it may also be ran in the cloud, assuming it's suitable. 
+Live Mesh for example is a virtual machine which you can code against and run your software both locally and within the cloud, 
+so your user simply goes to a URI and finds your program, you don't care where it is beyond it being available somewhere on the cloud.

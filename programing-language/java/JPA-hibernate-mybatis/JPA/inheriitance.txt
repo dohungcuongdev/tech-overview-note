@@ -1,0 +1,28 @@
+1. use @MappedSuperclass
+
+Example: 
+@MappedSuperclass
+public class Person {
+ 
+    @Id
+    private long personId;
+    private String name;
+ 
+    // constructor, getters, setters
+}
+
+@Entity
+public class MyEmployee extends Person {
+    private String company;
+    // constructor, getters, setters 
+}
+
+If we're using this strategy, ancestors cannot contain associations with other entities.
+that means we cannot have any class that Person can extend (inherite)
+
+
+2. use @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+
+https://www.baeldung.com/hibernate-inheritance
+
+

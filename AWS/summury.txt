@@ -1,0 +1,14 @@
+AWS Lambda lets you run code without provisioning or managing servers. You pay only for the compute time you consume.
+
+Amazon S3 has a simple web services interface that you can use to store and retrieve any amount of data, at any time, from anywhere on the web
+
+Amazon Elastic Compute Cloud: ( EC2) basically is your Virtual Operative System, you can install whatever OS you want (Debian, Ubuntu, Fedora, Centos, Windows Server, Suse enterprise). ( if your application uses server side processing this will be its home)
+Amazon EC2 cung cấp các ứng dụng máy tính ảo hoá có thể mở rộng về khả năng xử lý cùng các thành phần phần cứng ảo như bộ nhớ máy tính (ram), 
+vi xử lý, linh hoạt trong việc lựa chọn các phân vùng lưu trữ dữ liệu ở các nền tảng khác nhau và sự an toàn trong quản lý dịch vụ 
+bởi kiến trúc ảo hoá đám mây mạnh mẽ của AWS
+
+
+
+What is a cloud server?
+A cloud server is a virtual server (rather than a physical server) running in a cloud computing environment. It is built, hosted and delivered via a cloud computing platform via the internet, and can be accessed remotely. They are also known as virtual servers. Cloud servers have all the software they require to run and can function as independent units.
+The cloud is commonly used to refer to several servers connected to the internet that can be leased as part of a software or application service. Cloud-based services can include web hosting, data hosting and sharing, and software or application use.

@@ -1,0 +1,26 @@
+It is Design patterns or Architectural patterns
+
+Model view controller is a software architecture design pattern. It provides solution to layer an application by separating three concerns business, presentation and control flow. 
+
+Model can be some DAO layer or some Service Layers which give some information about request or requested information or Model can be a POJO which encapsulates the application data given by the controller.
+View is responsible for rendering the model data and in general it generates HTML output that the client's browser can interpret.
+Controller is responsible for processing user requests and building appropriate model and passes it to the view for rendering.
+
+
+MVC is a design pattern where V and C are "strictly" form the presentation layer, and M can include everything that is beyond presentation (GUI). The model part in MVC has been an opinion based topic for a long time. But here's how I would structure a typical MVC application.
+
+Presentation Layer
+  -> Views
+  -> ViewModels (The ViewModel class is designed to store and manage UI-related data ) 
+  -> Controllers 
+
+Service Layer
+  -> Includes business logic
+  -> Uses data access interfaces
+
+Data Access Layer (DAOs)
+  -> Contracts (interfaces) for persistent storage
+  -> Interface implementations
+
+Entities
+  -> POCO/ POJO that represent data

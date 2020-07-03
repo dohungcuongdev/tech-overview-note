@@ -1,0 +1,11 @@
+DTO is an abbreviation for Data Transfer Object, so it is used to transfer the data between classes and modules of your application.
+
+DAO is an abbreviation for Data Access Object, so it should encapsulate the logic for retrieving, saving and updating data in your data storage (a database, a file-system, whatever).
+
+A POJO (plain-old-Java-object) isn't rigorously defined. It's a Java object that doesn't have a requirement to implement a particular interface or derive from a particular base class, or make use of particular annotations in order to be compatible with a given framework, and can be any arbitrary (often relatively simple) Java object.
+
+A JavaBean follows certain conventions. Getter/setter naming, having a public default constructor, being serialisable etc
+A JavaBean must:
+- Have All properties private (use getters/setters)
+- Have A public no-argument constructor
+- Implement Serializable.

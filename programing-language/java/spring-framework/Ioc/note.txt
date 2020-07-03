@@ -1,0 +1,70 @@
+The Spring IoC container
+It is the heart of the Spring Framework. 
+The IoC container receives metadata from either an XML file, Java annotations, or Java code. 
+The container gets its instructions on what objects to instantiate, configure, and assemble from simple Plain Old Java Objects (POJO) 
+by reading the configuration metadata provided. These created objects through this process called Spring Beans.
+
+The responsibilities of IoC container are:
+- Instantiating the bean
+- Wiring the beans together
+- Configuring the beans
+- Managing the bean’s entire life-cycle
+
+The real benefits of Spring are showing up through its wiring constructs and using auto-wiring.
+
+Some of the beans are standalone, some of them are referencing other beans.
+Just how they wired up and how it makes all these objects that we’re using altogether.
+
+Bean Factory:
+- Bean instantiation/wiring
+
+
+Application Context:
+- Bean instantiation/wiring
+- Automatic BeanPostProcessor registration
+- Automatic BeanFactoryPostProcessor registration
+- Convenient MessageSource access (for i18n)
+- ApplicationEvent publication
+
+VN:
+Spring Container (IoC Container) sẽ tạo các đối tượng (spring bean), 
+lắp rắp (Wiring/@Autowired) chúng lại với nhau, cấu hình các đối tượng và quản lý vòng đời của chúng từ lúc tạo ra cho đến lúc bị hủy.
+
+BeanFactory và ApplicationContext đều là các interface thực hiện IoC Container.
+BeanFactory và ApplicationContext đều là các interface thực hiện IoC Container. ApplicationContext được xây dựng BeanFactory nhưng nó có thêm một số chức năng mở rộng như tích hợp với Spring AOP, xử lý message, context cho web application.
+
+
+BeanFactory chỉ là 1 interface, nên ở đây mình dùng DefaultListableBeanFactory, một implement của BeanFactory. cần khai báo thư viện spring-bean
+sử dụng XMLBeanFactory để load từ file xml
+
+// tạo factory		
+DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
+
+// đọc thông tin file cấu hình và gán vào factory
+XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(factory);
+reader.loadBeanDefinitions(new ClassPathResource("beans.xml"));
+
+//tạo đối tượng từ factory
+HelloWorld obj = (HelloWorld) factory.getBean("helloWorld");
+obj.getMessage();
+
+
+
+Application Context thường sẽ là file applicationContext.xml, cần khai báo thư viện spring-context
+ví dụ configure dataSource trong applicationContext
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  <bean id="dataResource" class="stackjava.com.springioc.applicationcontext.DataResource">
+    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+    <property name="url" value="jdbc:mysql://localhost/database_name" />
+    <property name="username" value="root" />
+    <property name="password" value="admin1234" />
+  </bean>
+
+</beans>
+
+ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+  DataResource obj = (DataResource) context.getBean("dataResource");

@@ -1,0 +1,7 @@
+The BeanFactoryPostProcessor executes before bean Object instantiation (before Applicationcontext is initialized)
+
+The order of execution is:
+1) The BeanFactoryPostProcessor implementation is first called
+2) The BeanFactory or ApplicationContext is initialized
+3) The bean singletons are instantiated.
+....

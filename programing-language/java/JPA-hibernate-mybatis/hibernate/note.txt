@@ -1,0 +1,48 @@
+Transient state
+The transient state is the initial state of an object.
+Once we create an instance of POJO class, then the object entered in the transient state.
+Here, an object is not associated with the Session. So, the transient state is not related to any database.
+Hence, modifications in the data don't affect any changes in the database.
+The transient objects exist in the heap memory. They are independent of Hibernate.
+
+
+Persistent state
+As soon as the object associated with the Session, it entered in the persistent state.
+Hence, we can say that an object is in the persistence state when we save or persist it.
+Here, each object represents the row of the database table.
+So, modifications in the data make changes in the database.
+We can use any of the following methods for the persistent state:
+session.save(e);  
+session.persist(e);  
+session.update(e);  
+session.saveOrUpdate(e);  
+session.lock(e);  
+session.merge(e);  
+
+
+Detached State
+Once we either close the session or clear its cache, then the object entered into the detached state.
+As an object is no more associated with the Session, modifications in the data don't affect any changes in the database.
+However, the detached object still has a representation in the database.
+If we want to persist the changes made to a detached object, it is required to reattach the application to a valid Hibernate session.
+To associate the detached object with the new hibernate session, use any of these methods - load(), merge(), refresh(), update() or save() on a new session with the reference of the detached object.
+We can use any of the following methods for the detached state:
+session.close();  
+session.clear();  
+session.detach(e);  
+session.evict(e);  
+
+
+save: insert, return id
+persit: insert but only transaction boundary, void function, not return id
+update: update
+saveOrUpdate: insert or update
+merge: 
+
+
+Clear (): When this method get called inside transaction boundry then all objects which are currently associate with particular session will be disconnected / clean or no longer associate with that Session instance. Therefore, after calling this method nothing will be performed on persistance layer or DB.
+Evict(): Removes the object from the session. This method is used to dissociate/disconnect the specified object from the session.
+detach(): same as evict
+Close() : Close session by calling session.close() method, means End the session and releasing the JDBC Connection and clean up.
+session.flush() our statements are execute in database but not committed. commit=flush+commit
+

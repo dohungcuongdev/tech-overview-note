@@ -1,0 +1,83 @@
+
+1/ What is REST API
+API viết tắt là Application Program Interface là 1 phầm mêm trung gian cho phép 2 applications giao tiếp với nhau
+
+REST viết tắt là Representaion State Transfer là 1 chuẩn kiến trúc sử dụng giao thức HTTP
+kiến trúc REST xoay quanh resource, trong REST thì tất cả các thành phần là resource
+resource thì được access (truy cập) thông qua HTTP methods
+
+tóm lại RESTful API là 1 kiểu kiến trúc, 1 chuẩn thiết kế để mình desgin ra API, cho phép truy cập resource thông qua HTTP methods
+
+
+2/ resource
+trong REST thì resource đơn giản là data, giống như Object trong lập trình hướng đối tượng hoặc entity trong database
+REST cho phép access resource và modify resource (thêm, sửa, xóa)
+
+trong REST có nhiều cách để diễn tả 1 resoure, có thể là text, JSON, XML ... đa phần em thấy mọi ng dùng JSON
+
+3/ How it works
+Client gửi request tới cho server 
+thông gia giao thức HTTP
+Server nhận request, xử lí rồi sau đó response tới client cũng thông qua giao thức HTTP
+
+4/ HTTP methods
+trong RESTful webservice, ta thường thấy có các methods POST, GET, PUT, PATCH, DELETE
+POST là tạo mới resource
+GET là get resource ra
+PUT là replace resource, thay thế resource đó = cái resource bên phía client mong muốn
+PATCH là modify resource, sửa resource, có thể sửa hết hoặc sửa 1 số field trong resource đó
+DELETE là delete resource
+
+5/ HTTP Request
+Verb: Chỉ ra http methods mình dùng: GET PUT POST DELETE
+URI: chỉ định cái resource trên server. ví dụ mình muốn truy cập user với id là 1 thì URI sẽ là: users/id tương ứng = users/1
+HTTP Version
+Request Header: chứ metadata dưới dạng 1 cặp key-value thêm thông tin cho cái HTTP request
+ví dụ: User-Agent: Mozilla/5.0
+Request Body: nội dụng của request. method get, delete thì không cần Request Body. method post, put, patch thì request body có thể sẽ là cái nội dung ta thêm, sửa
+
+6/ HTTP Response
+Status/Response Code: Status trả về cho cái resource đc request ví dụ get thành công thì trả về 200, ko tìm thấy thì 404 not found
+HTTP Version
+Response Header: chứa metadata dưới dạng 1 cặp key-value thêm thông tin cho cái HTTP request. ví dụ: Content-Type': 'application/json'
+Response Body: nội dụng response trả về
+
+7/ Status code
+
+8/ Statelessness:
+Stateless là thiết kế không lưu dữ liệu của client trên server. 
+Có nghĩa là sau khi client gửi dữ liệu lên server, server thực thi xong, 
+trả kết quả thì “quan hệ” giữa client và server bị “cắt đứt” – server không lưu bất cứ dữ liệu gì của client. 
+khái niệm “trạng thái” ở đây được hiểu là dữ liệu.
+
+advantages
+Web services có thể xử lí mỗi request 1 cách độc lập.
+Web services không cần thiết phải maintain , quản lí tương tác trước đó từ phía client
+giao thức HPPT cũng stateless nên RESTful cũng hoạt động tốt với HTTP
+
+disadvantages:
+Web services cần có thêm thông tin trong mỗi request và để có get đc state từ phía client
+
+ví dụ: mỗi lần phải request: users/1
+
+9/ Caching:
+Mình có thể cache 1 cái response của server trong 1 khoảng thời gian nhất định, 
+như vậy ví dụ nếu mình biết cái reponse đó ko thay đổi trong khoảng thời gian đó,
+mình sẽ ko cần phải request lại nhiều lần chỉ để lấy 1 cái response giống nhau, tiết kiệm đc băng thông
+
+1 số lưu ý nên làm:
+hình ảnh, css, javascript thì mình có thể cache từ 2-3 ngày
+ko nên để cái expiry date quá lâu
+nếu cái response đó có nội dung thường xuyên bị thay đổi thì chỉ nên cache vài giờ thôi
+
+10/ Pros and cons
+Pros
+- RESTful API khá đơn giản, đơn giản và dễ học hơn rất nhiều so với thằng anh em của nó là SOAP
+- giá thành cho việc maintenance cũng rẻ hơn (SOAP tốn nhiều bandwidth hơn)
+- linh động và scale up tốt, flexibility ở đây có nghĩa là dễ chỉnh sửa, update trong tương lai. 
+scalability thì REST API rất tốt cho mô hình mircoservices nên thích hợp cho nhưng dự án lớn large scale project
+
+Cons
+- chỉ hoạt đông phụ thuộc vào giao thức HTTP (SOAP thì hỗ trợ cả HTTP và 1 số giao thức khác như SMTP: Simple Mail Transfer Protocol)
+- security kém hơn SOAP (SOAP dùng WS-Security with SSL support. Built-in ACID compliance. tốt hơn REST: Supports HTTPS and SSL)
+

@@ -1,0 +1,45 @@
+Typically spring’s DI container does following things to create a bean, you request for:
+
+1. Create the bean instance either by a constructor or by a factory method
+2. Set the values and bean references to the bean properties
+3. Call the setter methods defined in the all the aware interfaces
+4. Pass the bean instance to the postProcessBeforeInitialization() method of each bean post processor
+5. Call the initialization callback methods
+6. Pass the bean instance to the postProcessAfterInitialization() method of each bean post processor
+7. The bean is ready to be used
+8. When the container is shut down, call the destruction callback methods
+
+Examplee:
+public class EmployeeDAOImpl implements EmployeeDAO
+{
+    public EmployeeDTO createNewEmployee()
+    {
+        EmployeeDTO e = new EmployeeDTO();
+        e.setId(1);
+        e.setFirstName("Lokesh");
+        e.setLastName("Gupta");
+        return e;
+    }
+     
+    public void initBean() {
+        System.out.println("Init Bean for : EmployeeDAOImpl");
+    }
+     
+    public void destroyBean() {
+        System.out.println("Init Bean for : EmployeeDAOImpl");
+    }
+}
+
+<bean id="customBeanPostProcessor" class="com.howtodoinjava.demo.processors.CustomBeanPostProcessor" />
+<bean id="dao" class="com.howtodoinjava.demo.dao.EmployeeDAOImpl"  init-method="initBean" destroy-method="destroyBean"/>
+
+ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+
+
+Result:
+Called postProcessBeforeInitialization() for : dao
+Init Bean for : EmployeeDAOImpl
+Called postProcessAfterInitialization() for : dao
+
+
+=> BeanPostProcessor methods were called before and after initialization method. (init-method="initBean")

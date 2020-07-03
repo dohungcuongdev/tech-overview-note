@@ -1,0 +1,11 @@
+JSPs are servlets defined using static content (such as HTML) mixed with Java code. A JSP file will be compiled into a servlet class
+Controller extends HttpServlet -> Override doGet (handle a GET request), doPost (handle a POST request)
+in the Controller, use RequestDispatcher to forward JSP (or redirect to URL)
+maps the request with the servlet in the web.xml file
+web.xml configure JSP mapping, servlet-mapping, servlet init param, context-param (which can be read from all servlets in your application), error-page, filter
+All the code above will be packaged into war file
+start up tomcat with a war file in webapps foler inside Tomcat
+In your servlet container, the JSP servlet is mapped to any URL that ends in .jsp (usually)
+When one of those .jsp URLs is requested, the request goes to the JSP servlet. Then, this servlet checks if the JSP is already compiled.
+If the JSP is not compiled yet, the JSP servlet translates the JSP to some Java source code implementing the Servlet interface. Then it compiles this Java source code to a .class file. This .class file usually is located somewhere in the servlet container's work directory for the application.
+Once the JSP servlet has compiled the servlet class from the JSP source code, it just forwards the request to this servlet class.
